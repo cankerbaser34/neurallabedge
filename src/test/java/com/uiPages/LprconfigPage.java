@@ -249,7 +249,7 @@ public class LprconfigPage extends Base {
     public void userNavtoLivePage() {
 
         live_page.click();
-        Base.waitFor(3);
+        Base.waitFor(4);
 
     }
 
@@ -386,7 +386,7 @@ public class LprconfigPage extends Base {
     public void openVivoDirectionSection() {
         vivotek_direction_section.click();
         Base.waitFor(4);
-     //   Base.waitForClickablility(vivotek_direction_checkbox, 3);
+        //   Base.waitForClickablility(vivotek_direction_checkbox, 3);
     }
 
     public void enableComputeTraffDirection() {

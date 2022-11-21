@@ -278,7 +278,7 @@ public class ListsPage {
     }
 
     public boolean isFileDownloaded( String filename) {
-        File dir = new File("C:\\Users\\cihan.baser\\Documents\\projectNeeded\\HauTest\\src\\test\\java\\com\\Downloads");
+        File dir = new File("C:\\Users\\cihan.baser\\Documents\\projectNeeded\\neuralclone\\neurallabedge\\src\\test\\java\\com\\Downloads");
         File[] dirContents = dir.listFiles();
 
         for (int i = 0; i < dirContents.length; i++) {

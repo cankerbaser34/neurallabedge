@@ -4,6 +4,7 @@ import com.utilities.ConfigurationReader;
 import com.utilities.Driver;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -70,6 +71,9 @@ public class EvidencePage extends Base {
     @FindBy(css = "input[role='spinbutton']")
     public WebElement fps_input;
 
+    @FindBy(xpath = "//span[normalize-space()='Restart service']")
+    public WebElement restart_service_button;
+
 
     public void navToEvidencePage() {
         evidence_page_href.click();
@@ -77,7 +81,12 @@ public class EvidencePage extends Base {
     }
 
     public void clickOnAddButton() {
-        add_evidence_button.click();
+
+        if (add_evidence_button.isDisplayed()) {
+            add_evidence_button.click();
+
+        }
+
     }
 
 
@@ -132,7 +141,12 @@ public class EvidencePage extends Base {
         fps_input.clear();
         Base.waitFor(3);
         fps_input.sendKeys("4");
-        Base.waitFor(3);
+        Base.waitFor(2);
+    }
+
+    public void clickOnRestartService() {
+
+        restart_service_button.click();
     }
 }
 

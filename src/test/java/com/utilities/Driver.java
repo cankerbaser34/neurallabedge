@@ -32,7 +32,7 @@ public class Driver {
                     WebDriverManager.chromedriver().setup();
                     ChromeOptions options = new ChromeOptions();
                     Map<String, Object> prefs = new HashMap<String, Object>();
-                    prefs.put("download.default_directory", "C:\\Users\\cihan.baser\\Documents\\projectNeeded\\HauTest\\src\\test\\java\\com\\Downloads");
+                    prefs.put("download.default_directory", "C:\\Users\\cihan.baser\\Documents\\projectNeeded\\neuralclone\\neurallabedge\\src\\test\\java\\com\\Downloads");
                     options.setExperimentalOption("prefs", prefs);
                     driver = new ChromeDriver(options);
                     break;
