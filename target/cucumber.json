@@ -11,24 +11,24 @@
         "steps": [
           {
             "result": {
-              "duration": 10859085800,
+              "duration": 4867147600,
               "status": "passed"
             },
             "line": 4,
-            "name": "user is on Evidence Page",
+            "name": "user is on generalconfig page",
             "match": {
-              "location": "com.stepDefinitions.EvidenceStepDefinitions.userIsOnEvidencePage()"
+              "location": "com.stepDefinitions.GeneralConfigStepDefinitions.userIsGeneralconfigPage()"
             },
             "keyword": "Given "
           }
         ]
       },
       {
-        "start_timestamp": "2022-11-17T08:56:43.264Z",
+        "start_timestamp": "2022-11-21T16:05:02.494Z",
         "before": [
           {
             "result": {
-              "duration": 9932304400,
+              "duration": 5108183600,
               "status": "passed"
             },
             "match": {
@@ -36,14 +36,14 @@
             }
           }
         ],
-        "line": 22,
-        "name": "Validate that evidence camera configuration should work with basic authentication",
+        "line": 50,
+        "name": "Validate the square view option functionality under view option",
         "description": "",
-        "id": "functionality-of-evidence-camera;validate-that-evidence-camera-configuration-should-work-with-basic-authentication",
+        "id": "checking-general-configuration-options;validate-the-square-view-option-functionality-under-view-option",
         "after": [
           {
             "result": {
-              "duration": 743702700,
+              "duration": 383517500,
               "status": "passed"
             },
             "match": {
@@ -56,131 +56,65 @@
         "steps": [
           {
             "result": {
-              "duration": 88783500,
+              "duration": 4353366600,
               "status": "passed"
             },
-            "line": 24,
-            "name": "user clicks on add button for new evidence camera",
+            "line": 51,
+            "name": "user clicks on view options",
             "match": {
-              "location": "com.stepDefinitions.EvidenceStepDefinitions.userClicksOnAddButtonForNewEvidenceCamera()"
+              "location": "com.stepDefinitions.GeneralConfigStepDefinitions.userClicksOnViewOptions()"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 96862500,
+              "duration": 53699500,
               "status": "passed"
             },
-            "line": 25,
-            "name": "user enters name of evidence camera",
+            "line": 52,
+            "name": "user selects square option",
             "match": {
-              "location": "com.stepDefinitions.EvidenceStepDefinitions.userEntersNameOfEvidenceCamera()"
+              "location": "com.stepDefinitions.GeneralConfigStepDefinitions.userSelectsSquareOption()"
             },
             "keyword": "And "
           },
           {
             "result": {
-              "duration": 6124338600,
+              "duration": 6859207200,
               "status": "passed"
             },
-            "line": 26,
-            "name": "user clicks on save button on evidence page",
+            "line": 53,
+            "name": "user goes to live page",
             "match": {
-              "location": "com.stepDefinitions.EvidenceStepDefinitions.userClicksOnSaveButtonOnEvidencePage()"
+              "location": "com.stepDefinitions.LprConfigStepDefinitions.userGoesToLivePage()"
             },
             "keyword": "And "
           },
           {
             "result": {
-              "duration": 5124141300,
+              "duration": 45654500,
               "status": "passed"
             },
-            "line": 27,
-            "name": "user clicks on added element to see details",
+            "line": 54,
+            "name": "the results should show as a square box on live page",
             "match": {
-              "location": "com.stepDefinitions.EvidenceStepDefinitions.userClicksOnAddedElementToSeeDetails()"
+              "location": "com.stepDefinitions.GeneralConfigStepDefinitions.theResultsShouldShowAsASquareBoxOnLivePage()"
             },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 149386000,
-              "status": "passed"
-            },
-            "line": 28,
-            "name": "user enters name of the camera in login field",
-            "match": {
-              "location": "com.stepDefinitions.EvidenceStepDefinitions.userEntersNameOfTheCameraInLoginField()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 111928300,
-              "status": "passed"
-            },
-            "line": 29,
-            "name": "user enters password of the camera in password field",
-            "match": {
-              "location": "com.stepDefinitions.EvidenceStepDefinitions.userEntersPasswordOfTheCameraInPasswordField()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 3095315400,
-              "status": "passed"
-            },
-            "line": 30,
-            "name": "user selects basic authentication",
-            "match": {
-              "location": "com.stepDefinitions.EvidenceStepDefinitions.userSelectsBasicAuthentication()"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 2124297200,
-              "status": "passed"
-            },
-            "line": 31,
-            "name": "user enters url",
-            "match": {
-              "location": "com.stepDefinitions.EvidenceStepDefinitions.userEntersUrl()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 9568023700,
-              "status": "passed"
-            },
-            "line": 32,
-            "name": "user sets fps to 4",
-            "match": {
-              "arguments": [
-                {
-                  "val": "4",
-                  "offset": 17
-                }
-              ],
-              "location": "com.stepDefinitions.EvidenceStepDefinitions.userSetsFpsTo(int)"
-            },
-            "keyword": "And "
+            "keyword": "Then "
           }
         ],
         "tags": [
           {
-            "name": "@Evidence"
+            "name": "@log1"
           }
         ]
       }
     ],
-    "name": "Functionality of Evidence camera",
+    "name": "Checking general configuration options",
     "description": "",
-    "id": "functionality-of-evidence-camera",
+    "id": "checking-general-configuration-options",
     "keyword": "Feature",
-    "uri": "file:src/test/resources/features/evidence.feature",
+    "uri": "file:src/test/resources/features/generalconfig.feature",
     "tags": []
   }
 ]

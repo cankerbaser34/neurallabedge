@@ -62,7 +62,7 @@ public class GeneralConfigPage extends Base {
     @FindBy(id = "gridContainer")
     public WebElement list_container;
 
-    @FindBy(id = "bxopt")
+    @FindBy(css = "#bxopt1")
     public WebElement square_container;
 
     @FindBy(xpath = "//div[contains(text(),'LIST')]")
@@ -261,6 +261,9 @@ public class GeneralConfigPage extends Base {
 
     // Customized options locators
 
+    @FindBy(xpath = "//div[@id='Customized']")
+    public WebElement custumized_options;
+
     @FindBy(css = "#ExportCC")
     public WebElement export_csv_file_button;
 
@@ -355,7 +358,6 @@ public class GeneralConfigPage extends Base {
     }
 
     public void enterMacToResetCounter() {
-
         reset_counters_input.sendKeys(mac_adress_text);
         Base.waitFor(3);
     }
@@ -688,7 +690,23 @@ public class GeneralConfigPage extends Base {
 
     public void clickOnExportDataBase() {
         export_database_button.click();
-        Base.waitFor(6);
+        Base.waitFor(4);
+    }
+
+    public void clickOnVparConfig() {
+        export_vpar_button.click();
+        Base.waitFor(4);
+    }
+
+    public void openCustomizedOptions() {
+        custumized_options.click();
+    }
+
+    public void clickOnCustomExportCsv() {
+        export_csv_file_button.click();
+        Base.waitFor(4);
+
+
     }
 
 

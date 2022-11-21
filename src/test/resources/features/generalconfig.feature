@@ -45,6 +45,8 @@ Feature: Checking general configuration options
     Then the results should show on live page as a list
 
 
+  @log1
+
   Scenario: Validate the square view option functionality under view option
     When user clicks on view options
     And user selects square option
@@ -192,7 +194,6 @@ Feature: Checking general configuration options
     And user clicks on restart service button on GeneralConfig page
 
 
-
   Scenario: Validate that hearbeat options works when valid configuration is done with xml json type
     When user clicks on heartbeat options
     And user clicks send hearbeat checkbox
@@ -201,7 +202,6 @@ Feature: Checking general configuration options
     And user sets Port input field
     And user selects json type of heartbeat option
     And user clicks on restart service button on GeneralConfig page
-
 
 
   Scenario: Validate upload file option under maintenance option
@@ -216,12 +216,10 @@ Feature: Checking general configuration options
     Then the last files should be reverted
 
 
-
   Scenario: Validate the content of show info button
     When user clicks on maintenance option
     And user clicks on show info button
     Then the version and mac adress should be seen
-
 
 
   Scenario: Validate  functionality of reset the database button
@@ -233,7 +231,6 @@ Feature: Checking general configuration options
     And user enters the mac address as password
     And user clicks on yes button
     Then the data base will be  cleared
-
 
 
   Scenario: Validate functionality of reset counters button button
@@ -254,16 +251,23 @@ Feature: Checking general configuration options
 
 
     # File is downloaded the right path but it should fail when file name is wrong modify this.
-  @log1
+
   Scenario: Validate functionality of export data base button
     When user clicks on maintenance option
     And user clicks export database button
     Then database should be downloaded
 
+
   Scenario: Validate the functionality of export VPAR config button
     When user clicks on maintenance option
     And user clicks on export VPAR config button
     Then vpar config should be downloaded
+
+
+  Scenario: Validate the functionality of ExportToCsvfile button under Customized Options
+    When user clicks on Customized options section
+    And user clicks on Export to Csv file button
+    Then customized options should be downloaded
 
 
 
