@@ -1,6 +1,6 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:src/test/resources/features/evidence.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:src/test/resources/features/lists.feature");
 formatter.feature({
-  "name": "Functionality of Evidence camera",
+  "name": "Functionality of List page",
   "description": "",
   "keyword": "Feature"
 });
@@ -13,111 +13,91 @@ formatter.before({
   "status": "passed"
 });
 formatter.step({
-  "name": "user is on Evidence Page",
+  "name": "user is on List Page",
   "keyword": "Given "
 });
 formatter.match({
-  "location": "com.stepDefinitions.EvidenceStepDefinitions.userIsOnEvidencePage()"
+  "location": "com.stepDefinitions.ListStepDefinitions.userIsOnListPage()"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.scenario({
-  "name": "Validate that evidence camera configuration should work with basic authentication",
+  "name": "Validate that user can add a new action to all plates list",
   "description": "",
   "keyword": "Scenario",
   "tags": [
     {
-      "name": "@Evidence"
+      "name": "@listnw"
     }
   ]
 });
 formatter.step({
-  "name": "user clicks on add button for new evidence camera",
+  "name": "user clicks on all plates list",
   "keyword": "When "
 });
 formatter.match({
-  "location": "com.stepDefinitions.EvidenceStepDefinitions.userClicksOnAddButtonForNewEvidenceCamera()"
+  "location": "com.stepDefinitions.ListStepDefinitions.userClicksOnAllPlatesList()"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "user enters name of evidence camera",
+  "name": "user clicks on action for the list field",
   "keyword": "And "
 });
 formatter.match({
-  "location": "com.stepDefinitions.EvidenceStepDefinitions.userEntersNameOfEvidenceCamera()"
+  "location": "com.stepDefinitions.ListStepDefinitions.userClicksOnActionForTheListField()"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "user clicks on save button on evidence page",
+  "name": "user clicks on add action button",
   "keyword": "And "
 });
 formatter.match({
-  "location": "com.stepDefinitions.EvidenceStepDefinitions.userClicksOnSaveButtonOnEvidencePage()"
+  "location": "com.stepDefinitions.ListStepDefinitions.userClicksOnAddActionButton()"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "user clicks on added element to see details",
+  "name": "user enters description of action",
   "keyword": "And "
 });
 formatter.match({
-  "location": "com.stepDefinitions.EvidenceStepDefinitions.userClicksOnAddedElementToSeeDetails()"
+  "location": "com.stepDefinitions.ListStepDefinitions.userEntersDescriptionOfAction()"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "user enters name of the camera in login field",
+  "name": "user selects type of action",
   "keyword": "And "
 });
 formatter.match({
-  "location": "com.stepDefinitions.EvidenceStepDefinitions.userEntersNameOfTheCameraInLoginField()"
+  "location": "com.stepDefinitions.ListStepDefinitions.userSelectsTypeOfAction()"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "user enters password of the camera in password field",
+  "name": "user enables the action",
   "keyword": "And "
 });
 formatter.match({
-  "location": "com.stepDefinitions.EvidenceStepDefinitions.userEntersPasswordOfTheCameraInPasswordField()"
+  "location": "com.stepDefinitions.ListStepDefinitions.userEnablesTheAction()"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "user selects basic authentication",
+  "name": "user clicks on save button for new action",
   "keyword": "When "
 });
 formatter.match({
-  "location": "com.stepDefinitions.EvidenceStepDefinitions.userSelectsBasicAuthentication()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "user enters url",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "com.stepDefinitions.EvidenceStepDefinitions.userEntersUrl()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "user sets fps to 4",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "com.stepDefinitions.EvidenceStepDefinitions.userSetsFpsTo(int)"
+  "location": "com.stepDefinitions.ListStepDefinitions.userClicksOnSaveButtonForNewAction()"
 });
 formatter.result({
   "status": "passed"

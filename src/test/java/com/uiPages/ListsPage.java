@@ -116,15 +116,27 @@ public class ListsPage {
 
     @FindBy(xpath = "(//div[@title='Add a row'])[3]")
     public WebElement add_action_button;
+
     @FindBy(css = "#actionlist")
     public WebElement action_section;
+
     @FindBy(xpath = "(//div[@class='dx-texteditor-container'])[5]")
     public WebElement description_action_input;
-    @FindBy(xpath = "(//input[@id='dx-col-29'])[1]")
+
+    @FindBy(css = "body > div:nth-child(2) > div:nth-child(1) > div:nth-child(4) > div:nth-child(2) > div:nth-child(6) > div:nth-child(1) > div:nth-child(6) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(2) > tr:nth-child(1) > td:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > input:nth-child(1)")
     public WebElement action_description;
 
-    @FindBy(xpath = "(//input[@id='dx-col-25'])[1]")
+    @FindBy(css = "td[role='gridcell'][aria-describedby='dx-col-25']")
     public WebElement select_action_dropdown;
+
+    @FindBy(xpath = "//div[contains(text(),'Socket client')]")
+    public WebElement socket_client_action;
+
+    @FindBy(css = "td[role='gridcell'][aria-describedby='dx-col-26']")
+    public WebElement select_active_dropdown;
+
+    @FindBy(xpath = "//div[contains(text(),'Enabled')]")
+    public WebElement enabled_action;
 
     @FindBy(css = "div[id='ExportActionsCSV'] div[class='dx-button-content']")
     public WebElement export_to_CSV_file_button;
@@ -277,7 +289,7 @@ public class ListsPage {
 
     }
 
-    public boolean isFileDownloaded( String filename) {
+    public boolean isFileDownloaded(String filename) {
         File dir = new File("C:\\Users\\cihan.baser\\Documents\\projectNeeded\\HauTest\\src\\test\\java\\com\\Downloads");
         File[] dirContents = dir.listFiles();
 
@@ -291,7 +303,7 @@ public class ListsPage {
         return false;
     }
 
-    public void newFileDownload(String filename){
+    public void newFileDownload(String filename) {
 
         File dir = new File("C:\\Users\\cihan.baser\\Documents\\projectNeeded\\HauTest\\src\\test\\java\\com\\Downloads");
         File[] dirContents = dir.listFiles();
@@ -353,7 +365,6 @@ public class ListsPage {
 
     public void clickOnAllPlatesList() {
         allplates_list.click();
-
     }
 
     public void clickOnActionSection() {
@@ -362,17 +373,37 @@ public class ListsPage {
 
     public void clickOnAddAction() {
         add_action_button.click();
-    }
-
-    public void entersDescriptionofAction() {
-        action_description.sendKeys("Action1");
         Base.waitFor(3);
     }
 
-    public void selectActionType() {
-        select_action_dropdown.sendKeys("Trigger server");
+    public void entersDescriptionofAction() {
+        // action_description.sendKeys("Action1");
+        //  Base.waitFor(3);
+
+        action_description.click();
+        Base.waitFor(3);
+        action_description.sendKeys("Action1");
         Base.waitFor(4);
 
+    }
+
+    public void clickOnActionType() {
+        select_action_dropdown.click();
+        Base.waitFor(2);
+    }
+
+    public void selectActionType() {
+        socket_client_action.click();
+
+    }
+
+    public void clickOnActiveSection() {
+        select_active_dropdown.click();
+        Base.waitFor(3);
+    }
+
+    public void selectActiveAction() {
+        enabled_action.click();
 
     }
 

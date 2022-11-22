@@ -157,11 +157,17 @@ public class ListStepDefinitions {
 
     @And("user selects type of action")
     public void userSelectsTypeOfAction() {
+
+        listsPage.clickOnActionType();
         listsPage.selectActionType();
     }
 
-    @And("user enable or disable of action")
-    public void userEnableOrDisableOfAction() {
+    @And("user enables the action")
+    public void userEnablesTheAction() {
+
+        listsPage.clickOnActiveSection();
+        listsPage.selectActiveAction();
+
     }
 
     @When("user clicks on save button for new action")
