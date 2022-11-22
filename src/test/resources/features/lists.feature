@@ -65,6 +65,6 @@ Scenario: Validate that user can add a new action to all plates list
   And user clicks on add action button
   And user enters description of action
   And user selects type of action
-  And user enable or disable of action
+  And user enables the action
   When user clicks on save button for new action
 
