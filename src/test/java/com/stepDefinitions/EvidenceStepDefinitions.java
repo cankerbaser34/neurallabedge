@@ -83,4 +83,10 @@ public class EvidenceStepDefinitions {
     public void userSetsFpsTo(int arg0) {
         evidencePage.setFps();
     }
+
+    @And("user clicks on restart service button on Evidence Page")
+    public void userClicksOnRestartServiceButtonOnEvidencePage() {
+        evidencePage.clickOnRestartService();
+
+    }
 }

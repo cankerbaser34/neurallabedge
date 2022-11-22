@@ -130,10 +130,13 @@ public class GeneralConfigStepDefinitions {
     @When("user clicks on export VPAR config button")
     public void userClicksOnExportVPARConfigButton() {
 
+        generalConfigPage.clickOnVparConfig();
     }
 
     @Then("vpar config should be downloaded")
     public void vparConfigShouldBeDownloaded() {
+        listsPage.isFileDownloaded("vparcfg.tar.gz");
+
     }
 
 
@@ -454,4 +457,19 @@ public class GeneralConfigStepDefinitions {
     }
 
 
+    @When("user clicks on Customized options section")
+    public void userClicksOnCustomizedOptionsSection() {
+        generalConfigPage.openCustomizedOptions();
+    }
+
+    @And("user clicks on Export to Csv file button")
+    public void userClicksOnExportToCsvFileButton() {
+        generalConfigPage.clickOnCustomExportCsv();
+    }
+
+    @Then("customized options should be downloaded")
+    public void customizedOptionsShouldBeDownloaded() {
+
+        listsPage.isFileDownloaded("customconfig.csv");
+    }
 }
