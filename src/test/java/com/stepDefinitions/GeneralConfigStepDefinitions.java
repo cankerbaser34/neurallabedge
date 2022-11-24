@@ -152,6 +152,7 @@ public class GeneralConfigStepDefinitions {
 
     @Then("the full image should not be saved")
     public void theFullImageShouldNotBeSaved() {
+
     }
 
 
@@ -429,6 +430,11 @@ public class GeneralConfigStepDefinitions {
 
     }
 
+    @And("user sets id for heartbox")
+    public void userSetsIdForHeartbox() {
+        generalConfigPage.setIdHeartBeat();
+    }
+
     @And("user sets timing in seconds field")
     public void userSetsTimingInSecondsField() {
 
@@ -472,4 +478,6 @@ public class GeneralConfigStepDefinitions {
 
         listsPage.isFileDownloaded("customconfig.csv");
     }
+
+
 }
