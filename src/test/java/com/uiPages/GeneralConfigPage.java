@@ -196,14 +196,17 @@ public class GeneralConfigPage extends Base {
     @FindBy(css = "#elem32")
     public WebElement send_heartbeat_input;
 
-    @FindBy(css = "div[id='elem33'] input[role='spinbutton']")
+    @FindBy(css = "#elem33 > div > input")
+    public WebElement send_heartbeat_id;
+
+    @FindBy(css = "#elem34 > div > input")
     public WebElement hearbeat_timing_seconds;
 
 
-    @FindBy(css = "div[id='elem34'] input[role='textbox']")
+    @FindBy(css = "#elem35 > div > input")
     public WebElement heartbeat_ip;
 
-    @FindBy(css = "div[id='elem35'] input[role='spinbutton']")
+    @FindBy(css = "#elem36 > div > input")
     public WebElement heartbeat_port;
 
     @FindBy(xpath = ("//div[contains(text(),'XML')]"))
@@ -677,7 +680,7 @@ public class GeneralConfigPage extends Base {
         Base.waitFor(4);
         heartbeat_port.clear();
         Base.waitFor(2);
-        heartbeat_port.sendKeys("8080");
+        heartbeat_port.sendKeys("17001");
     }
 
     public void selecTypeHeartBeat() {
@@ -707,6 +710,17 @@ public class GeneralConfigPage extends Base {
         Base.waitFor(4);
 
 
+    }
+
+    public void setIdHeartBeat(){
+
+        send_heartbeat_id.click();
+        Base.waitFor(2);
+        send_heartbeat_id.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+        Base.waitFor(4);
+        send_heartbeat_id.clear();
+        Base.waitFor(2);
+        send_heartbeat_id.sendKeys("1");
     }
 
 
