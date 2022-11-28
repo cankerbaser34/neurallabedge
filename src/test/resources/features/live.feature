@@ -16,18 +16,18 @@ Feature: Live page functionality
     Then info panel background should change and it stops updating
 
 
-  @live
+
   Scenario: Validate that the ROI section appears when showroi option is selected
     Given user is on live page
     When user selects showRoi status checkbox
     Then NO Roi do display message should not appear on live page
 
-  @live
+
   Scenario: Validate that lane appears on live streaming when showlane option is selected
     When user selects showlanes checkbox
     Then lane set before should appear on the live stream
 
-  @live
+  @live12
   Scenario: Validate that patterns on live stream appears when calibrationpattern option is selected
     When user selects calibration pattern
     Then patterns should appear on live streaming

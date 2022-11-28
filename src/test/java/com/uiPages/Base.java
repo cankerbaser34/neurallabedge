@@ -70,5 +70,13 @@ public class Base {
         }
     }
 
+    public static void containText(String text) {
+
+        Driver.get(ConfigurationReader.get("url")).getPageSource().contains(text);
+
+    }
+
+
+
 
 }

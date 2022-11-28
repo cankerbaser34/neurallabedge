@@ -16,13 +16,13 @@ public class LprConfigStepDefinitions {
 
     @When("user enters a region into region section")
     public void userEntersARegionIntoRegionSection() {
-        lprconfigPage.changeRegion();
+        lprconfigPage.changeRegion("Europe");
 
     }
 
     @And("user selects one country or state from that region")
     public void userSelectsOneCountryOrStateFromThatRegion() {
-        lprconfigPage.selectCountryforRegion();
+        lprconfigPage.selectCountryforRegion("Spain");
     }
 
     @And("user clicks on restart service button")
@@ -32,6 +32,7 @@ public class LprConfigStepDefinitions {
 
     @Then("on result panel from live page country or state column should show selected country")
     public void onResultPanelFromLivePageCountryOrStateColumnShouldShowSelectedCountry() {
+        lprconfigPage.assertChangeRegion("Spain");
     }
 
     @When("user clicks on trigger radio button")
@@ -149,7 +150,7 @@ public class LprConfigStepDefinitions {
 
     @Then("the mode should be trigger")
     public void theModeShouldBeTrigger() {
-        lprconfigPage.getTextofMode();
+        lprconfigPage.assertTriggerMode();
     }
 
     @When("user clicks on direction section")
@@ -165,5 +166,55 @@ public class LprConfigStepDefinitions {
     @Then("the direction column should show directions")
     public void theDirectionColumnShouldShowDirections() {
 
+    }
+
+    @When("user clicks on freeflowMotion section")
+    public void userClicksOnFreeflowMotionSection() {
+        lprconfigPage.openFreeFlowOption();
+    }
+
+    @And("user selects none freeflowmotion filter mode")
+    public void userSelectsNoneFreeflowmotionFilterMode() {
+        lprconfigPage.selectNoneFilterMotion();
+    }
+
+    @Then("camera read plates consistently")
+    public void cameraReadPlatesConsistently() {
+    }
+
+    @And("user selects captures filter mode")
+    public void userSelectsCapturesFilterMode() {
+        lprconfigPage.selectCaptureFilterOption();
+    }
+
+    @And("user selects time filter mode")
+    public void userSelectsTimeFilterMode() {
+        lprconfigPage.setTimeFilterOption();
+
+    }
+
+    @And("user set filter time to {string} ms")
+    public void userSetFilterTimeToMs(String arg0) {
+        lprconfigPage.setFilterTime();
+    }
+
+    @Then("the mode on live page should be freeflow")
+    public void theModeOnLivePageShouldBeFreeflow() {
+        lprconfigPage.validateFreeflowMode();
+
+    }
+
+    @Then("the mode on live page should be motiondetection")
+    public void theModeOnLivePageShouldBeMotiondetection() {
+        lprconfigPage.assertMotionDetectionMode();
+    }
+
+    @And("user draws a lane on the image")
+    public void userDrawsALaneOnTheImage() {
+        lprconfigPage.setLane();
+    }
+
+    @Then("the lane should be set and appear on live page when show lane option is selected")
+    public void theLaneShouldBeSetAndAppearOnLivePageWhenShowLaneOptionIsSelected() {
     }
 }
