@@ -18,6 +18,9 @@ public class LivePage extends Base {
     @FindBy(css = "#aindex")
     public WebElement live_link;
 
+    @FindBy(tagName = "body")
+    public WebElement body;
+
     @FindBy(css = "#widget")
     public WebElement language_field;
 
@@ -74,7 +77,7 @@ public class LivePage extends Base {
 
     public void clickOnShowRoi() {
         show_roi_checkbox.click();
-        Base.waitFor(3);
+        Base.waitFor(5);
     }
 
 
@@ -104,6 +107,11 @@ public class LivePage extends Base {
     }
 
     public void assertPopUpforRoi() {
-        Assert.assertTrue(popup_roi_div.isDisplayed());
+        Assert.assertTrue(body.getText().contains("No ROI to display"));
+    }
+
+    public void assertCallibrationCheckbox() {
+        Assert.assertEquals("true", callibration_pattern_checkbox.getAttribute("aria-checked"));
+
     }
 }

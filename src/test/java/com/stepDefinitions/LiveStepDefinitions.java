@@ -53,6 +53,7 @@ public class LiveStepDefinitions {
     @Then("lane set before should appear on the live stream")
     public void laneSetBeforeShouldAppearOnTheLiveStream() {
 
+
     }
 
 
@@ -63,6 +64,8 @@ public class LiveStepDefinitions {
 
     @Then("patterns should appear on live streaming")
     public void patternsShouldAppearOnLiveStreaming() {
+        livePage.assertCallibrationCheckbox();
+
     }
 
 

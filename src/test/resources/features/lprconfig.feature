@@ -3,13 +3,17 @@ Feature: Functionality of lpr configuration
   Background:
     Given user is on lpr configuration page
 
+
   Scenario: Validate that user can change the region and country for lpg config page
     When user enters a region into region section
     And user selects one country or state from that region
+    And user clicks on free flow option
+    And user clicks on freeflowMotion section
+    And user selects none freeflowmotion filter mode
     And user clicks on restart service button
+    And user goes to live page
     Then on result panel from live page country or state column should show selected country
 
-    # validation step is missing
 
   Scenario: Validate that user can select trigger option
     When user clicks on trigger radio button
@@ -17,15 +21,19 @@ Feature: Functionality of lpr configuration
     And user goes to live page
     Then the mode should be trigger
 
-    # validation step is missing
+
   Scenario: Validate that user can select freeflow option
     When user clicks on free flow option
     And user clicks on restart service button
 
-    # Check the locator again
+    Then the mode on live page should be freeflow
+
+
   Scenario: Validate that user  can select motiondetection option
     When user clicks on motionddetection option
     And user clicks on restart service button
+    And user goes to live page
+    Then the mode on live page should be motiondetection
 
 
   Scenario: Validate that user can select 1280*720 resolutions
@@ -41,13 +49,22 @@ Feature: Functionality of lpr configuration
     # Apllication distance should be added here
 
   # validation step is missing
+
   Scenario: Validate the functionality of resetROI button
     When user clicks on ShowROI section
     And user clicks on ResetROI  button
     And user clicks on restart service button
+    And user goes to live page
+    And user selects showRoi status checkbox
     Then the roi should be removed
 
 
+  @test
+  Scenario: Validate that the lane can be set
+    When user clicks on ShowLanes section
+    And user clicks on DeleteLanes  button
+    And user draws a lane on the image
+    Then the lane should be set and appear on live page when show lane option is selected
     # validation step is missing
   Scenario: Validate the functionality of DeleteLanes button
     When user clicks on ShowLanes section
@@ -93,7 +110,29 @@ Feature: Functionality of lpr configuration
     And user set trigger timeout
     And user selects IO port
 
-  @Lpgconfig
+
+  Scenario: Validate that camera can read plates with none option for freeflow/motion filter mode
+    When user clicks on freeflowMotion section
+    And user selects none freeflowmotion filter mode
+    And user clicks on restart service button
+    Then camera read plates consistently
+
+
+  Scenario: Validate that camera can read plates with captures option for freeflow/motion filter mode
+    When user clicks on freeflowMotion section
+    And user selects captures filter mode
+    And user clicks on restart service button
+    Then camera read plates consistently
+
+
+  Scenario: Validate that camera can read plates with time option for freeflow/motion filter mode
+    When user clicks on freeflowMotion section
+    And user selects time filter mode
+    And user set filter time to "7000" ms
+    And user clicks on restart service button
+    Then camera read plates consistently
+
+
   Scenario: Validate that the direction options after enabling
     When user clicks on direction section
     And user enables compute traffic direction option

@@ -1,13 +1,16 @@
 package com.uiPages;
 
-import com.google.common.annotations.GwtIncompatible;
+
 import com.utilities.ConfigurationReader;
 import com.utilities.Driver;
+import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.Select;
+
 
 public class LprconfigPage extends Base {
 
@@ -19,8 +22,14 @@ public class LprconfigPage extends Base {
     @FindBy(css = "#aindex")
     public WebElement live_page;
 
+    @FindBy(tagName = "body")
+    public WebElement live_body;
+
     @FindBy(css = ".dx-cell-focus-disabled[aria-describedby='dx-col-2']")
     public WebElement mode_value;
+
+    @FindBy(xpath = "//*[@id=\"gridContainer\"]/div/div[6]/div/div/div[1]/div/table/tbody/tr[1]/td[8]")
+    public WebElement country_state_first_tr;
     @FindBy(css = "#acamconfiguration")
     public WebElement lpr_page;
 
@@ -42,7 +51,7 @@ public class LprconfigPage extends Base {
     @FindBy(xpath = "(//div[@class='dx-radio-value-container'])[2]")
     public WebElement mode_freeflow_radio;
 
-    @FindBy(css = "div[id='dx-416a2b9e-9226-e413-952b-1d0df22c9e5f'] div[class='dx-radio-value-container']")
+    @FindBy(xpath = "//div[contains(text(),'MOTIONDETECTION')]")
     public WebElement mode_motiondetecion_radio;
 
     @FindBy(xpath = "//div[contains(text(),'1280x720')]")
@@ -71,6 +80,9 @@ public class LprconfigPage extends Base {
 
     @FindBy(css = "#ResetLan")
     public WebElement delete_lanes;
+
+    @FindBy(css = "#canvaslanes")
+    public WebElement lane_image;
 
 
     // Expert options locators
@@ -125,22 +137,22 @@ public class LprconfigPage extends Base {
 
     // FreelFlow/Motion options locators
 
-    @FindBy(css = "#group18")
+    @FindBy(xpath = "//*[contains(text(),'FreeFlow/Motion')]")
     public WebElement freeFlow_motion_open;
 
-    @FindBy(xpath = "(//div[@class='dx-radiobutton-icon'])[8]")
+    @FindBy(xpath = "//div[contains(text(),'NONE')]")
     public WebElement freeflow_filter_none_radio;
 
     @FindBy(xpath = "//div[contains(text(),'CAPTURES')]")
-    public WebElement freeflow_filter_none_captures;
+    public WebElement freeflow_filter_capture_radio;
 
     @FindBy(xpath = "//div[contains(text(),'TIME')]")
-    public WebElement freeflow_filter_none_time;
+    public WebElement freeflow_filter_time_radio;
 
     @FindBy(css = "#elem22")
     public WebElement freflow_motion_captures_input;
 
-    @FindBy(css = "#elem23")
+    @FindBy(css = "#elem23 > div > input")
     public WebElement freeflow_motion_time_input;
 
     @FindBy(css = "#elem24")
@@ -199,20 +211,20 @@ public class LprconfigPage extends Base {
         Base.waitFor(3);
     }
 
-    public void changeRegion() {
+    public void changeRegion(String region_name) {
         region_dropdown.click();
-        Base.waitFor(2);
+        Base.waitFor(1);
         region_dropdown.sendKeys(Keys.chord(Keys.CONTROL, "a"));
-        Base.waitFor(2);
+        Base.waitFor(1);
         region_dropdown.clear();
-        Base.waitFor(2);
-        region_dropdown.sendKeys("South America & Central");
-        Base.waitFor(3);
+        Base.waitFor(1);
+        region_dropdown.sendKeys(region_name);
+        Base.waitFor(1);
         region_dropdown.sendKeys(Keys.TAB);
         Base.waitFor(3);
     }
 
-    public void selectCountryforRegion() {
+    public void selectCountryforRegion(String country) {
 
         // country_div.click();
         Base.waitFor(3);
@@ -221,7 +233,7 @@ public class LprconfigPage extends Base {
 
         // country_state.click();
         Base.waitFor(2);
-        country_state.sendKeys("Bolivia");
+        country_state.sendKeys(country);
         Base.waitFor(2);
         country_state.sendKeys(Keys.ENTER);
         Base.waitFor(2);
@@ -229,9 +241,8 @@ public class LprconfigPage extends Base {
     }
 
     public void clickRestartService() {
-
+        restart_button.click();
         Base.waitFor(15);
-
     }
 
     public void selectTriggerOption() {
@@ -247,16 +258,16 @@ public class LprconfigPage extends Base {
     }
 
     public void userNavtoLivePage() {
-
         live_page.click();
         Base.waitFor(4);
 
     }
 
-    public void getTextofMode() {
+    public void assertTriggerMode() {
 
-        String modeText = mode_value.getText();
-        System.out.println(modeText);
+        Assert.assertTrue(live_body.getText().contains("TRIGGER"));
+
+
     }
 
     public void selectLowResolutions() {
@@ -390,10 +401,70 @@ public class LprconfigPage extends Base {
     }
 
     public void enableComputeTraffDirection() {
-
         if (vivotek_direction_checkbox.getAttribute("aria-checked").equals("false")) {
             vivotek_direction_checkbox.click();
         }
+    }
+
+    public void openFreeFlowOption() {
+        freeFlow_motion_open.click();
+    }
+
+    public void selectNoneFilterMotion() {
+        freeflow_filter_none_radio.click();
+    }
+
+    public void selectCaptureFilterOption() {
+        freeflow_filter_capture_radio.click();
+
+
+    }
+
+    public void setTimeFilterOption() {
+
+        freeflow_filter_time_radio.click();
+    }
+
+    public void setFilterTime() {
+
+        freeflow_motion_time_input.click();
+        Base.waitFor(2);
+        freeflow_motion_time_input.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+        Base.waitFor(1);
+        freeflow_motion_time_input.clear();
+        Base.waitFor(1);
+        freeflow_motion_time_input.sendKeys("7000");
+        Base.waitFor(2);
+
+
+    }
+
+    public void validateFreeflowMode() {
+
+        Assert.assertTrue(live_body.getText().contains("FREEFLOW"));
+
+    }
+
+    public void assertMotionDetectionMode() {
+
+        Assert.assertTrue(live_body.getText().contains("MOTION"));
+    }
+
+    public void assertChangeRegion(String country) {
+        Assert.assertTrue(country_state_first_tr.getText().contains(country));
+    }
+
+    public void setLane() {
+
+
+        Actions builder = null;
+        Action drawAction = builder.moveToElement(lane_image, 0, 0)
+                .clickAndHold()
+                .moveByOffset(250, 50)
+                .release()
+                .build();
+        drawAction.perform();
+
     }
 
 }

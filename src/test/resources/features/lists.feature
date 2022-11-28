@@ -4,7 +4,7 @@ Feature: Functionality of List page
   Background:
     Given user is on List Page
 
-  @list
+
   Scenario: Validate that the new list can be added.
     And user clicks on add button for new list
     And user enters name of new list
@@ -12,7 +12,7 @@ Feature: Functionality of List page
     And user clicks on save button
     Then the new list should be added and appears among the lists
 
-  @list
+
   Scenario: Validate the functionality of edit option for created list
     When user clicks on edit button on created list
     And user changes name of the list
@@ -20,7 +20,7 @@ Feature: Functionality of List page
     And user clicks on save page
     Then name and Levenshtein distance should be changed
 
-  @list
+
   Scenario: Validate the functionality of delete option for created list
     When user clicks on delete button
     And user clicks on yes button to delete
@@ -57,7 +57,7 @@ Feature: Functionality of List page
 
 
 
-  @listnw
+
 Scenario: Validate that user can add a new action to all plates list
 
   When user clicks on all plates list
