@@ -25,7 +25,6 @@ Feature: Functionality of lpr configuration
   Scenario: Validate that user can select freeflow option
     When user clicks on free flow option
     And user clicks on restart service button
-
     Then the mode on live page should be freeflow
 
 
@@ -38,17 +37,60 @@ Feature: Functionality of lpr configuration
 
   Scenario: Validate that user can select 1280*720 resolutions
     When user clicks on 1280*720 resolutions
+    And user clicks on freeflowMotion section
+    And user selects none freeflowmotion filter mode
     And user clicks on restart service button
-
+    And user goes to live page
+    Then camera read plates consistently
 
     # validation step is missing
+
   Scenario: Validate that user can select 1920*1080 resolution
     When user clicks on 1920x1080 resolutions
+    And user clicks on freeflowMotion section
+    And user selects none freeflowmotion filter mode
     And user clicks on restart service button
+    And user goes to live page
+    Then camera read plates consistently
+
+  @test
+  Scenario: Validate that camera can work with close/slow application distance option
+    When user selects closeslow application distance option
+    And user clicks on freeflowMotion section
+    And user selects none freeflowmotion filter mode
+    And user clicks on restart service button
+    And user goes to live page
+    Then camera read plates consistently
+
+
+  @test
+  Scenario: Validate that camera can work with close/fast application distance option
+    When user selects closefast application distance option
+    And user clicks on freeflowMotion section
+    And user selects none freeflowmotion filter mode
+    And user clicks on restart service button
+    And user goes to live page
+    Then camera read plates consistently
+
+
+  Scenario: Validate that camera can work with far/slow application distance option
+    When user selects farslow application distance option
+    And user clicks on freeflowMotion section
+    And user selects none freeflowmotion filter mode
+    And user clicks on restart service button
+    And user goes to live page
+    Then camera read plates consistently
+
+  Scenario: Validate that camera can work with far/fast application distance option
+    When user selects farfast application distance option
+    And user clicks on freeflowMotion section
+    And user selects none freeflowmotion filter mode
+    And user clicks on restart service button
+    And user goes to live page
+    Then camera read plates consistently
 
     # Apllication distance should be added here
-
-  # validation step is missing
+    # validation step is missing
 
   Scenario: Validate the functionality of resetROI button
     When user clicks on ShowROI section
@@ -59,12 +101,13 @@ Feature: Functionality of lpr configuration
     Then the roi should be removed
 
 
-  @test
   Scenario: Validate that the lane can be set
     When user clicks on ShowLanes section
     And user clicks on DeleteLanes  button
     And user draws a lane on the image
     Then the lane should be set and appear on live page when show lane option is selected
+
+
     # validation step is missing
   Scenario: Validate the functionality of DeleteLanes button
     When user clicks on ShowLanes section
@@ -73,9 +116,7 @@ Feature: Functionality of lpr configuration
     Then the roi should be removed
 
     # Add cross line detection here, first learn how it works
-
-
-  # validation step is missing
+    # validation step is missing
   Scenario:Validate that plates can be read with minimum character high configuration
     When user clicks on expert options field
     And user enter 13 in minimum character height field
@@ -94,7 +135,7 @@ Feature: Functionality of lpr configuration
     And user clicks on restart service button
 
 
-# validation step is missing
+   # validation step is missing
   Scenario: Validate that camera can read the plates after activating and setting angle filter options
     When user clicks on expert options field
     And user clicks enable angle filter checkbox

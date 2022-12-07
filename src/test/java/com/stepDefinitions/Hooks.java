@@ -19,7 +19,7 @@ public class Hooks extends Base {
     public void setUp() {
         Base.clearCookies();
 
-        String camera_ip = ConfigurationReader.get("vivotek_ib9365_ht_a");
+        String camera_ip = ConfigurationReader.get("vivotek_ip9165_lpc");
         String name_password = ConfigurationReader.get("user_password");
         String partial_url = ConfigurationReader.get("vivo_live_url");
         String full_url = "http://" + name_password + camera_ip + partial_url;

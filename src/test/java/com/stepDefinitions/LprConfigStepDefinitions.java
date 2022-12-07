@@ -217,4 +217,26 @@ public class LprConfigStepDefinitions {
     @Then("the lane should be set and appear on live page when show lane option is selected")
     public void theLaneShouldBeSetAndAppearOnLivePageWhenShowLaneOptionIsSelected() {
     }
+
+    @When("user selects closeslow application distance option")
+    public void userSelectsCloseslowApplicationDistanceOption() {
+
+        lprconfigPage.selectCloseSlowDistance();
+    }
+
+    @When("user selects closefast application distance option")
+    public void userSelectsClosefastApplicationDistanceOption() {
+
+    }
+
+    @When("user selects farslow application distance option")
+    public void userSelectsFarslowApplicationDistanceOption() {
+
+        lprconfigPage.selectFarSlowDistance();
+    }
+
+    @When("user selects farfast application distance option")
+    public void userSelectsFarfastApplicationDistanceOption() {
+        lprconfigPage.selectFarFastDistance();
+    }
 }

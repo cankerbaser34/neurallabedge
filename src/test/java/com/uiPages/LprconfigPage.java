@@ -60,14 +60,17 @@ public class LprconfigPage extends Base {
     @FindBy(xpath = "//div[contains(text(),'1920x1080')]")
     public WebElement resoluoyion_1980_radio;
 
-    @FindBy(xpath = "(//div[@role='radio'])[6]")
+    @FindBy(xpath = "(//div[contains(text(),'Close/Slow')]")
     public WebElement application_close_slow_radio;
 
-    @FindBy(xpath = "(//div[@class='dx-radio-value-container'])[8]")
-    public WebElement far_slow_radio;
+    @FindBy(xpath = "(//div[contains(text(),'Close/Fast')]")
+    public WebElement application_close_fast_radio;
 
-    @FindBy(xpath = "(//div[@class='dx-radio-value-container'])[9]")
-    public WebElement far_fadst_radi;
+    @FindBy(xpath = "(//div[contains(text(),'Far/Slow')]")
+    public WebElement application_far_slow_radio;
+
+    @FindBy(xpath = "(//div[contains(text(),'Far/Fast')]")
+    public WebElement application_far_fast_radio;
 
     @FindBy(css = "#ROIheader")
     public WebElement roi_section;
@@ -242,7 +245,7 @@ public class LprconfigPage extends Base {
 
     public void clickRestartService() {
         restart_button.click();
-        Base.waitFor(15);
+        Base.waitFor(25);
     }
 
     public void selectTriggerOption() {
@@ -411,7 +414,8 @@ public class LprconfigPage extends Base {
     }
 
     public void selectNoneFilterMotion() {
-        freeflow_filter_none_radio.click();
+        freeflow_filter_none_radio.click()
+        ;
     }
 
     public void selectCaptureFilterOption() {
@@ -465,6 +469,26 @@ public class LprconfigPage extends Base {
                 .build();
         drawAction.perform();
 
+    }
+
+    public void selectCloseSlowDistance() {
+        application_close_slow_radio.click();
+    }
+
+    public void selectCloseFastDistance() {
+        application_close_fast_radio.click();
+
+
+    }
+
+    public void selectFarSlowDistance() {
+        application_far_slow_radio.click();
+
+    }
+
+    public void selectFarFastDistance() {
+
+        application_far_fast_radio.click();
     }
 
 }
