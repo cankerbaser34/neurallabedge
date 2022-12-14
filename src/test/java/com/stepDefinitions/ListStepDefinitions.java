@@ -7,6 +7,8 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+import java.io.IOException;
+
 public class ListStepDefinitions {
 
     ListsPage listsPage = new ListsPage();
@@ -169,5 +171,11 @@ public class ListStepDefinitions {
 
     @When("user clicks on save button for new action")
     public void userClicksOnSaveButtonForNewAction() {
+    }
+
+
+    @And("user clicks on select import XMLCSV file button")
+    public void userClicksOnSelectImportXMLCSVFileButton() throws IOException {
+        listsPage.clickOnImportActionFile();
     }
 }

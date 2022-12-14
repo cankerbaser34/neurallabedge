@@ -9,8 +9,12 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
+
 
 public class Base {
+
+
 
 
     public static void clearCookies() {
@@ -74,6 +78,21 @@ public class Base {
 
         Driver.get(ConfigurationReader.get("url")).getPageSource().contains(text);
 
+    }
+
+
+    public static boolean isFileDownloaded( String filename) {
+        File dir = new File("C:\\Users\\cihan.baser\\Documents\\projectNeeded\\neuralclone\\neurallabedge\\src\\test\\java\\com\\Downloads");
+        File[] dirContents = dir.listFiles();
+
+        for (int i = 0; i < dirContents.length; i++) {
+            if (dirContents[i].getName().equals(filename)) {
+                // File has been found, it can now be deleted:
+                dirContents[i].delete();
+                return true;
+            }
+        }
+        return false;
     }
 
 

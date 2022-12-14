@@ -2,6 +2,7 @@ package com.uiPages;
 
 import com.utilities.ConfigurationReader;
 import com.utilities.Driver;
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -45,6 +46,9 @@ public class Logs extends Base {
     @FindBy(css = "div[id='icon-done_info'] div[class='dx-button-content']")
     public WebElement downloadlogs_button;
 
+    @FindBy(css = "div[id='example-textarea'] textarea[role='textbox']")
+    public WebElement text_area_logs;
+
 
     public void navto_logs() {
 
@@ -72,11 +76,20 @@ public class Logs extends Base {
 
     public void clearLogs() {
         clearlogs_button.click();
+        Base.waitFor(5);
     }
 
     public void downloadLogs() {
         downloadlogs_button.click();
-        Base.waitFor(10);
+        Base.waitFor(15);
+    }
+
+    public void validateManagerLog() {
+        Base.containText("Canker");
+    }
+
+    public void validateLogsDownloaded(){
+        Base.isFileDownloaded("logs.tar.gz");
     }
 }
 

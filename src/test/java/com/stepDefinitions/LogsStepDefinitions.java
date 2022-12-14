@@ -27,6 +27,7 @@ public class LogsStepDefinitions {
     @Then("the logs should appear on logs screen")
     public void theLogsShouldAppearOnLogsScreen() {
 
+
     }
 
 
@@ -37,6 +38,7 @@ public class LogsStepDefinitions {
 
     @Then("the manager logs should appear on the screen")
     public void theManagerLogsShouldAppearOnTheScreen() {
+        logs.validateManagerLog();
     }
 
     @When("user clicks on engine logs option")
@@ -48,7 +50,7 @@ public class LogsStepDefinitions {
 
     @Then("the engine logs should appear on the screen")
     public void theEngineLogsShouldAppearOnTheScreen() {
-        
+
     }
 
     @And("user clicks on clearlogs button")
@@ -63,4 +65,9 @@ public class LogsStepDefinitions {
 
     }
 
+    @Then("the logs should be downloaded")
+    public void theLogsShouldBeDownloaded() {
+        logs.validateLogsDownloaded();
+
+    }
 }

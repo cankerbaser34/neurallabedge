@@ -68,3 +68,9 @@ Scenario: Validate that user can add a new action to all plates list
   And user enables the action
   When user clicks on save button for new action
 
+
+  @lists
+  Scenario: Validate that user can import xml/css action file
+    When user clicks on all plates list
+    And user clicks on action for the list field
+    And user clicks on select import XMLCSV file button

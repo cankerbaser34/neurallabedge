@@ -8,6 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import java.io.File;
+import java.io.IOException;
 
 public class ListsPage {
 
@@ -111,6 +112,8 @@ public class ListsPage {
     @FindBy(css = "#deleteoldaction")
     public WebElement delete_list_element_checkbox;
 
+    @FindBy(xpath = "//*[@id=\"ImportActionsbutton\"]/div/div/div/div[1]/div[1]")
+    public WebElement select_import_xml;
 
     // Action Locators
 
@@ -198,6 +201,8 @@ public class ListsPage {
     public WebElement cancel_import_href;
 
 
+
+
     public void navToListPage() {
         list_page_href.click();
         Base.waitFor(5);
@@ -277,7 +282,7 @@ public class ListsPage {
 
     }
 
-    public boolean isFileDownloaded( String filename) {
+    public boolean isFileDownloaded(String filename) {
         File dir = new File("C:\\Users\\cihan.baser\\Documents\\projectNeeded\\neuralclone\\neurallabedge\\src\\test\\java\\com\\Downloads");
         File[] dirContents = dir.listFiles();
 
@@ -291,7 +296,7 @@ public class ListsPage {
         return false;
     }
 
-    public void newFileDownload(String filename){
+    public void newFileDownload(String filename) {
 
         File dir = new File("C:\\Users\\cihan.baser\\Documents\\projectNeeded\\HauTest\\src\\test\\java\\com\\Downloads");
         File[] dirContents = dir.listFiles();
@@ -358,6 +363,7 @@ public class ListsPage {
 
     public void clickOnActionSection() {
         action_section.click();
+        Base.waitFor(5);
     }
 
     public void clickOnAddAction() {
@@ -372,6 +378,15 @@ public class ListsPage {
     public void selectActionType() {
         select_action_dropdown.sendKeys("Trigger server");
         Base.waitFor(4);
+
+    }
+
+    public void clickOnImportActionFile() throws IOException {
+
+       select_import_xml.click();
+
+        Runtime.getRuntime().exec("C:\\Users\\cihan.baser\\20221212140602_0_LOCAL_DATA_EXPORT_CSV_ALLLIST");
+        Base.waitFor(5);
 
 
     }
