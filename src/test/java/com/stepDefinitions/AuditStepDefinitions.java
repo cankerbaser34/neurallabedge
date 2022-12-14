@@ -4,6 +4,7 @@ import com.uiPages.AuditVivotek;
 import com.uiPages.Base;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class AuditStepDefinitions {
@@ -56,4 +57,19 @@ public class AuditStepDefinitions {
     }
 
 
+    @And("user clicks on numbregister dropdown option")
+    public void userClicksOnNumbregisterDropdownOption() {
+    }
+
+    @And("user selects {int} page options from show number registers")
+    public void userSelectsPageOptionsFromShowNumberRegisters(int arg0) {
+    }
+
+    @Then("twenty action register should appear on result panel")
+    public void twentyActionRegisterShouldAppearOnResultPanel() {
+    }
+
+    @Then("{int} register should appear on result panel")
+    public void registerShouldAppearOnResultPanel(int arg0) {
+    }
 }

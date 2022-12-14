@@ -4,7 +4,6 @@ Feature: Functionality of List page
   Background:
     Given user is on List Page
 
-
   Scenario: Validate that the new list can be added.
     And user clicks on add button for new list
     And user enters name of new list

@@ -13,7 +13,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "com/stepDefinitions",
         dryRun = false,
-        tags = "@lists"
+        tags = "@Auditpage1"
 )
 
 public class Runner {

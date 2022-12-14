@@ -114,20 +114,20 @@ public class ReviewPage extends Base {
 
         int size_of_rows = result_table.size();
         System.out.println(size_of_rows);
-        Assert.assertTrue(size_of_rows >= 50);
+        Assert.assertTrue(size_of_rows <= 50);
     }
 
     public void assertResults20() {
         int size_of_rows = result_table.size();
         System.out.println(size_of_rows);
-        Assert.assertTrue(size_of_rows >= 20);
+        Assert.assertTrue(size_of_rows <= 20);
     }
 
     public void assertResult100() {
 
         int size_of_rows = result_table.size();
         System.out.println(size_of_rows);
-        Assert.assertTrue(size_of_rows >= 100);
+        Assert.assertTrue(size_of_rows <= 100);
     }
 
     public void clickExportButton() {
