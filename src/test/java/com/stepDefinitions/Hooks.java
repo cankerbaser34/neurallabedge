@@ -19,33 +19,28 @@ public class Hooks extends Base {
     public void setUp() {
         Base.clearCookies();
 
-        String camera_ip = ConfigurationReader.get("vivotek_fd9387_htv_a");
-        String name_password = ConfigurationReader.get("user_password");
-        String partial_url = ConfigurationReader.get("vivo_live_url");
+        String camera_ip = ConfigurationReader.get("vicon_v200");
+        String name_password = ConfigurationReader.get("vicon_user_password");
+        String partial_url = ConfigurationReader.get("vic_live_url");
         String full_url = "http://" + name_password + camera_ip + partial_url;
 
         String url = ConfigurationReader.get("urlaxis");
         Driver.get(ConfigurationReader.get("browser")).manage().window().maximize();
         Driver.get(ConfigurationReader.get("browser")).manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         Driver.get(ConfigurationReader.get("browser")).get(full_url);
-        Base.waitFor(5);
+        Base.waitFor(10);
 
 
     }
 
     @After
     public void tearDown(Scenario scenario) {
-
         if (scenario.isFailed()) {
-
             final byte[] screenshot = ((TakesScreenshot) Driver.get("url")).getScreenshotAs(OutputType.BYTES);
-
             scenario.attach(screenshot, "image/png", "screenshot");
 
         }
-
         Driver.closeDriver();
-
     }
 
 

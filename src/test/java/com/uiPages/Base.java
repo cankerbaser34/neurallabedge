@@ -8,13 +8,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.junit.Assert;
+import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 
 import java.io.File;
 
 
 public class Base {
-
-
 
 
     public static void clearCookies() {
@@ -81,7 +82,7 @@ public class Base {
     }
 
 
-    public static boolean isFileDownloaded( String filename) {
+    public static boolean isFileDownloaded(String filename) {
         File dir = new File("C:\\Users\\cihan.baser\\Documents\\projectNeeded\\neuralclone\\neurallabedge\\src\\test\\java\\com\\Downloads");
         File[] dirContents = dir.listFiles();
 
@@ -95,7 +96,8 @@ public class Base {
         return false;
     }
 
-
-
+    public static void contextClick(WebElement element) {
+        new Actions(Driver.get(ConfigurationReader.get(""))).contextClick(element).build().perform();
+    }
 
 }

@@ -313,6 +313,13 @@ public class GeneralConfigPage extends Base {
         }
     }
 
+    public void ableSaveImage(){
+
+        if (save_image_checkbox.getAttribute("aria-checked").equals("false")) {
+            save_image_checkbox.click();
+        }
+    }
+
     public void disableSavePlateImage() {
         if (save_theplateimage_checkbox.getAttribute("aria-checked").equals("true")) {
             save_theplateimage_checkbox.click();

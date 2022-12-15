@@ -480,4 +480,12 @@ public class GeneralConfigStepDefinitions {
     }
 
 
+    @And("user select save image option")
+    public void userSelectSaveImageOption() {
+        generalConfigPage.ableSaveImage();
+    }
+
+    @Then("the full image should  be saved")
+    public void theFullImageShouldBeSaved() {
+    }
 }

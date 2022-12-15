@@ -4,11 +4,20 @@ Feature: Checking general configuration options
     Given user is on generalconfig page
 
     #Expert options  validations start from here
-  Scenario: Validate the functionality of save image option under expert option
+
+  Scenario: Validate the functionality of save image option under expert option when its not selected
     When user  clicks on expert option
     And user unselect save image option
     And user clicks on restart service button on GeneralConfig page
     Then the full image should not be saved
+
+
+  @genfeature
+  Scenario: Validate the functionality of save image option under expert option when its selected
+    When user  clicks on expert option
+    And user select save image option
+    And user clicks on restart service button on GeneralConfig page
+    Then the full image should  be saved
 
 
   Scenario: Validate the functionality of save the plate image option

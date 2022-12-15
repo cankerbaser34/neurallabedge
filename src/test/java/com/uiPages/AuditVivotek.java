@@ -4,8 +4,10 @@ import com.utilities.ConfigurationReader;
 import com.utilities.Driver;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.WebDriver;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -14,6 +16,9 @@ import java.time.format.DateTimeFormatter;
 
 
 public class AuditVivotek extends Base {
+
+
+    public static WebDriver driver;
 
     DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
     LocalDateTime now = LocalDateTime.now();
@@ -27,6 +32,7 @@ public class AuditVivotek extends Base {
 
     @FindBy(css = "#ahistoric")
     public WebElement autit_page_href;
+
     @FindBy(css = "div[id='data1'] input[role='combobox']")
     public WebElement fromdate_input;
 
@@ -39,16 +45,53 @@ public class AuditVivotek extends Base {
     @FindBy(id = "radio-group-simple")
     public WebElement type_section;
 
-
     @FindBy(xpath = "//div[contains(text(),'import')]")
-
     public WebElement importtype;
+
     @FindBy(xpath = "//div[contains(text(),'action')]")
     public WebElement action_type;
 
     @FindBy(css = "#export")
     public WebElement export_button;
 
+    @FindBy(css = "#dx-col-1")
+    public static WebElement id_column;
+
+    @FindBy(css = "#dx-col-2")
+    public WebElement time_column;
+
+    @FindBy(css = "#dx-col-3")
+    public WebElement status_column;
+
+    @FindBy(css = "#dx-col-4")
+    public WebElement type_column;
+
+    @FindBy(css = "#dx-col-5")
+    public WebElement res_column;
+
+    @FindBy(css = "#dx-col-6")
+    public WebElement list_column;
+
+    @FindBy(css = "#dx-col-7")
+    public WebElement description_column;
+
+    @FindBy(css = "#dx-col-8")
+    public WebElement file_column;
+
+    @FindBy(xpath = "//span[normalize-space()='First page']")
+    public WebElement firstpage_button;
+
+    @FindBy(xpath = "//span[normalize-space()='<< Previous']")
+    public WebElement previous_button;
+
+    @FindBy(xpath = "//span[normalize-space()='Next >>']")
+    public WebElement next_button;
+
+    @FindBy(xpath = "//span[normalize-space()='Last page']")
+    public WebElement lastpage_button;
+
+    @FindBy(xpath = "//span[normalize-space()='Sort Descending']")
+    public WebElement sort_descending;
 
     public void goToHomePage() {
 
@@ -97,6 +140,30 @@ public class AuditVivotek extends Base {
 
         export_button.click();
         Base.waitFor(3);
+    }
+
+    public void clickOnLastPageButton() {
+        lastpage_button.click();
+        Base.waitFor(4);
+    }
+
+    public void clickOnNextPageButton() {
+        next_button.click();
+        Base.waitFor(5);
+    }
+
+    public void clickOnPreviousPage() {
+        previous_button.click();
+        Base.waitFor(5);
+    }
+
+    public static void rightClickOnIdcolumn() {
+        Base.contextClick(id_column);
+        Base.waitFor(5);
+    }
+
+    public void clickOnSortDescending() {
+        sort_descending.click();
     }
 
 }

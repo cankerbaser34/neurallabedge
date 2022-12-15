@@ -16,7 +16,6 @@ Feature: Live page functionality
     Then info panel background should change and it stops updating
 
 
-
   Scenario: Validate that the ROI section appears when showroi option is selected
     Given user is on live page
     When user selects showRoi status checkbox

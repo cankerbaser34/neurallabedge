@@ -11,6 +11,7 @@ public class AuditStepDefinitions {
 
     AuditVivotek auditVivotek = new AuditVivotek();
 
+
     @Given("user is on audit page of vivotek camera")
     public void userIsOnAuditPageOfVivotekCamera() {
         auditVivotek.goToHomePage();
@@ -71,5 +72,44 @@ public class AuditStepDefinitions {
 
     @Then("{int} register should appear on result panel")
     public void registerShouldAppearOnResultPanel(int arg0) {
+    }
+
+    @And("user clicks on last page button")
+    public void userClicksOnLastPageButton() {
+        auditVivotek.clickOnLastPageButton();
+    }
+
+    @Then("the last actions should appear on the page")
+    public void theLastActionsShouldAppearOnThePage() {
+
+    }
+
+    @And("user clicks on next page button")
+    public void userClicksOnNextPageButton() {
+        auditVivotek.clickOnNextPageButton();
+    }
+
+    @Then("the next page should appear")
+    public void theNextPageShouldAppear() {
+    }
+
+    @And("user clicks on previous button")
+    public void userClicksOnPreviousButton() {
+        auditVivotek.clickOnPreviousPage();
+    }
+
+    @Then("the previous page should appear")
+    public void thePreviousPageShouldAppear() {
+    }
+
+    @And("user rights click on id column")
+    public void userRightsClickOnIdColumn() {
+        AuditVivotek.rightClickOnIdcolumn();
+    }
+
+    @And("user  clicks on sort decending")
+    public void userClicksOnSortDecending() {
+        auditVivotek.clickOnSortDescending();
+
     }
 }
