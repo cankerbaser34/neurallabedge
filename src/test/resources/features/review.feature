@@ -61,7 +61,6 @@ Feature:  functionality of review page
 
 
   Scenario: Validate the functionality coming filter option under direction section.
-
     When user clicks on direction dropdown button to see direction options
     And user selects coming direction
     And user clicks on search button of review page
