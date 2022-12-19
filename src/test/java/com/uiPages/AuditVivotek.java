@@ -164,6 +164,7 @@ public class AuditVivotek extends Base {
 
     public void clickOnSortDescending() {
         sort_descending.click();
+        Base.waitFor(5);
     }
 
 }

@@ -73,3 +73,8 @@ Scenario: Validate that user can add a new action to all plates list
     When user clicks on all plates list
     And user clicks on action for the list field
     And user clicks on select import XMLCSV file button
+
+    Scenario: Validate the functionality of adding an ftp match action
+      When user clicks on Export_all_data button
+      And user clicks on exports section
+      And user clicks on add button

@@ -100,4 +100,8 @@ public class Base {
         new Actions(Driver.get(ConfigurationReader.get(""))).contextClick(element).build().perform();
     }
 
+    public static void doubleClick(WebElement element) {
+        new Actions(Driver.get(ConfigurationReader.get(""))).doubleClick(element).build().perform();
+    }
+
 }

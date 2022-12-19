@@ -126,11 +126,13 @@ Feature: Checking the functionality of all the action types
     And user clicks on previous button
     Then the previous page should appear
 
-  @Auditpage1
+
   Scenario: Validate the functionality of sort descending on id column
     When user selects action option from tpye section
     And user clicks on search button
     And user rights click on id column
     And user  clicks on sort decending
 
+  @Auditpage1
+    Scenario: Validate the functionality of zkteco enterance
 

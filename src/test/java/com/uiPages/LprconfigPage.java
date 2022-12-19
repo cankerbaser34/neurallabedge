@@ -414,8 +414,7 @@ public class LprconfigPage extends Base {
     }
 
     public void selectNoneFilterMotion() {
-        freeflow_filter_none_radio.click()
-        ;
+        freeflow_filter_none_radio.click();
     }
 
     public void selectCaptureFilterOption() {

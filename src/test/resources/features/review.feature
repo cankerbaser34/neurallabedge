@@ -80,4 +80,6 @@ Feature:  functionality of review page
     And user clicks on search button of review page
     Then all the results direction should be going
 
+    Scenario: Validate the functionality of
+
 

@@ -178,4 +178,8 @@ public class ListStepDefinitions {
     public void userClicksOnSelectImportXMLCSVFileButton() throws IOException {
         listsPage.clickOnImportActionFile();
     }
+
+    @And("user clicks on exports section")
+    public void userClicksOnExportsSection() {
+    }
 }

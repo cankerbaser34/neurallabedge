@@ -5,40 +5,65 @@ Feature: Checking general configuration options
 
     #Expert options  validations start from here
 
+
+
   Scenario: Validate the functionality of save image option under expert option when its not selected
     When user  clicks on expert option
     And user unselect save image option
-    And user clicks on restart service button on GeneralConfig page
+    And user goes to lpr_config page
+    And user clicks on freeflowMotion section
+    And user selects none freeflowmotion filter mode
+    And user clicks on restart service button
+    And user goes to review page
+    And user clicks on search button
+    And user make a right click  on time column
     Then the full image should not be saved
 
 
-  @genfeature
   Scenario: Validate the functionality of save image option under expert option when its selected
     When user  clicks on expert option
     And user select save image option
-    And user clicks on restart service button on GeneralConfig page
+    And user goes to lpr_config page
+    And user clicks on freeflowMotion section
+    And user selects none freeflowmotion filter mode
+    And user clicks on restart service button
+    And user goes to review page
+    And user clicks on search button
+    And user make a right click  on time column
     Then the full image should  be saved
 
 
-  Scenario: Validate the functionality of save the plate image option
+  Scenario: Validate the functionality of save the plate image option when its not selected
     When user  clicks on expert option
     And user unselects save te plate image option
-    And user clicks on restart service button on GeneralConfig page
+    And user goes to lpr_config page
+    And user clicks on freeflowMotion section
+    And user selects none freeflowmotion filter mode
+    And user clicks on restart service button
+    And user goes to review page
+    And user clicks on search button
+    And user make a right click  on time column
     Then the plate image is not saved
 
+
+
+    Scenario: Validate the functionality of save the plate image option when its selected
+      When user  clicks on expert option
+      And user selects save the plate image option
+      And user goes to lpr_config page
+      And user clicks on freeflowMotion section
+      And user selects none freeflowmotion filter mode
+      And user clicks on restart service button
+      And user goes to review page
+      And user clicks on search button
+      And user make a right click  on time column
+      Then the plate image is  saved
 
   Scenario: Validate the functionality of image quality checkbox
     When user  clicks on expert option
     And user enters 80 in imageqality field
     And user clicks on restart service button on GeneralConfig page
     Then the size of saved image should be increased
-
-
-  Scenario: Validate the functionality of persistent action time option
-    When user  clicks on expert option
-    And user clicks persistent action time option
-    And user clicks on restart service button on GeneralConfig page
-    Then persistent action should be selected
 
   Scenario: Validate the functionality of savedatetime overlay option
     When user  clicks on expert option
@@ -186,6 +211,12 @@ Feature: Checking general configuration options
     And user selects days from type of purge
     And user clicks on restart service button on GeneralConfig page
 
+  @genfeature
+    Scenario:  Validate that purge option is set to day
+      When user  clicks on purge options
+      And user selects day radio option
+      And user selects days from type of purge
+      And user clicks on restart service button on GeneralConfig page
 
     # Heartbeat options start from here
 

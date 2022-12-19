@@ -170,4 +170,10 @@ public class ReviewStepDefintions {
     @Then("all the plates listed should be from BLOCKLIST")
     public void allThePlatesListedShouldBeFromBLOCKLIST() {
     }
+
+    @And("user make a right click  on time column")
+    public void userMakeARightClickOnTimeColumn() {
+        reviewPage.doubleClickOnIdColumn();
+
+    }
 }

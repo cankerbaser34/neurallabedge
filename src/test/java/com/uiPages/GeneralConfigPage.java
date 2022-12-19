@@ -22,6 +22,8 @@ public class GeneralConfigPage extends Base {
     @FindBy(css = "#aconfiguration")
     public WebElement generalconfig_href;
 
+    @FindBy(css = "#acamconfiguration")
+    public WebElement lpr_config_href;
     @FindBy(css = "#areview")
     public WebElement review_page;
 
@@ -313,7 +315,7 @@ public class GeneralConfigPage extends Base {
         }
     }
 
-    public void ableSaveImage(){
+    public void ableSaveImage() {
 
         if (save_image_checkbox.getAttribute("aria-checked").equals("false")) {
             save_image_checkbox.click();
@@ -719,7 +721,7 @@ public class GeneralConfigPage extends Base {
 
     }
 
-    public void setIdHeartBeat(){
+    public void setIdHeartBeat() {
 
         send_heartbeat_id.click();
         Base.waitFor(2);
@@ -730,6 +732,24 @@ public class GeneralConfigPage extends Base {
         send_heartbeat_id.sendKeys("1");
     }
 
+    public void goesToLprPage() {
+
+        lpr_config_href.click();
+    }
+
+    public void selectSavePlateImage() {
+
+        if (save_theplateimage_checkbox.getAttribute("aria-checked").equals("false"))
+            save_theplateimage_checkbox.click();
+    }
+
+
+    public void selectPurgeDaysOption() {
+
+        purge_interval_day_radio.click();
+
+
+    }
 
 }
 

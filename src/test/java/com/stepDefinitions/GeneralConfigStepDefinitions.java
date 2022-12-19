@@ -3,6 +3,7 @@ package com.stepDefinitions;
 import com.uiPages.Base;
 import com.uiPages.GeneralConfigPage;
 import com.uiPages.ListsPage;
+import com.uiPages.ReviewPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -12,6 +13,7 @@ import io.cucumber.java.en.When;
 public class GeneralConfigStepDefinitions {
 
     GeneralConfigPage generalConfigPage = new GeneralConfigPage();
+    ReviewPage reviewPage = new ReviewPage();
     ListsPage listsPage = new ListsPage();
 
     @Given("user is on generalconfig page")
@@ -152,6 +154,7 @@ public class GeneralConfigStepDefinitions {
 
     @Then("the full image should not be saved")
     public void theFullImageShouldNotBeSaved() {
+        reviewPage.assertNoImage();
 
     }
 
@@ -164,6 +167,7 @@ public class GeneralConfigStepDefinitions {
 
     @Then("the plate image is not saved")
     public void thePlateImageIsNotSaved() {
+        reviewPage.assertNoImageImageColumn();
     }
 
 
@@ -487,5 +491,33 @@ public class GeneralConfigStepDefinitions {
 
     @Then("the full image should  be saved")
     public void theFullImageShouldBeSaved() {
+        reviewPage.asserDownloadImageColumn();
+
+    }
+
+    @And("user goes to lpr_config page")
+    public void userGoesToLpr_configPage() {
+        generalConfigPage.goesToLprPage();
+    }
+
+    @And("user selects save the plate image option")
+    public void userSelectsSaveThePlateImageOption() {
+        generalConfigPage.selectSavePlateImage();
+
+
+    }
+
+    @Then("the plate image is  saved")
+    public void thePlateImageIsSaved() {
+        reviewPage.assertTrueSaveImage();
+        Base.waitFor(3
+        );
+    }
+
+    @And("user selects day radio option")
+    public void userSelectsDayRadioOption() {
+
+        generalConfigPage.clickOnVparConfig();
+
     }
 }

@@ -25,6 +25,19 @@ public class ReviewPage extends Base {
     @FindBy(css = "#data1")
     public WebElement to_date_input;
 
+    @FindBy(css = "#gridContainer > div > div.dx-datagrid-rowsview.dx-datagrid-nowrap.dx-last-row-border > div > table > tbody > tr:nth-child(2) > td:nth-child(11)")
+    public WebElement td_first_lpr_noimage;
+
+
+    @FindBy(xpath = "//*[@id=\"gridContainer\"]/div/div[6]/div/table/tbody/tr[1]/td[10]")
+    public WebElement td_first_show_image;
+
+    @FindBy(css = "#dx-col-2")
+    public WebElement time_column;
+
+    @FindBy(css = "#dx-col-1")
+    public WebElement id_column;
+
     @FindBy(css = "div[id='dirlist'] div[class='dx-dropdowneditor-input-wrapper dx-selectbox-container']")
     public WebElement direction_section;
 
@@ -53,6 +66,15 @@ public class ReviewPage extends Base {
 
     @FindBy(css = "#icon-done_info")
     public WebElement search_button;
+
+    @FindBy(css = "div[id='lane_list'] div[class='dx-texteditor-container']")
+    public WebElement line_dropdown;
+
+    @FindBy(xpath = "//div[contains(text(),'LANE1')]")
+    public WebElement line_one_option;
+
+    @FindBy(xpath = "//div[contains(text(),'LANE2')]")
+    public WebElement line_two_option;
 
     @FindBy(css = "div[id='TxPlate'] input[role='textbox']")
     public WebElement plate_search_input;
@@ -170,4 +192,33 @@ public class ReviewPage extends Base {
     }
 
 
+    public void rightClickOnTimeColumn() {
+        Base.contextClick(time_column);
+    }
+
+
+    public void doubleClickOnIdColumn() {
+        id_column.click();
+        Base.waitFor(3);
+        id_column.click();
+        Base.waitFor(5);
+
+    }
+
+    public void assertNoImage() {
+        Assert.assertTrue(td_first_lpr_noimage.getText().contains("No image"));
+    }
+
+    public void assertNoImageImageColumn() {
+
+        Assert.assertTrue(td_first_show_image.getText().contains("No image"));
+    }
+
+    public void asserDownloadImageColumn() {
+        Assert.assertTrue(td_first_lpr_noimage.getText().contains("LPR"));
+    }
+
+    public void assertTrueSaveImage(){
+        Assert.assertTrue(td_first_show_image.getAttribute("img").contains("cut.jpg"));
+    }
 }
