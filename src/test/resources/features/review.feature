@@ -73,13 +73,11 @@ Feature:  functionality of review page
     And user clicks on search button of review page
     Then all the results direction should be no direction
 
-
   Scenario:  Validate the functionality of no direction filter under direction section.
     When user clicks on direction dropdown button to see direction options
     And user selects going option
     And user clicks on search button of review page
     Then all the results direction should be going
 
-    Scenario: Validate the functionality of
 
 

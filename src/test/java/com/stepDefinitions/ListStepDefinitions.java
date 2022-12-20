@@ -159,13 +159,13 @@ public class ListStepDefinitions {
 
     @And("user selects type of action")
     public void userSelectsTypeOfAction() {
-
-
         listsPage.selectActionType();
+
     }
 
     @And("user enables the action")
     public void userEnablesTheAction() {
+        listsPage.selectActiveAction();
 
     }
 
@@ -181,5 +181,60 @@ public class ListStepDefinitions {
 
     @And("user clicks on exports section")
     public void userClicksOnExportsSection() {
+    }
+
+    @And("user clicks on exports exports to CSV file button")
+    public void userClicksOnExportsExportsToCSVFileButton() {
+    }
+
+    @And("exports should be downloaded")
+    public void exportsShouldBeDownloaded() {
+    }
+
+    @And("user clicks on exports for the list section")
+    public void userClicksOnExportsForTheListSection() {
+        listsPage.clickOnExportsForList();
+    }
+
+    @And("user clicks on Export to Csv file button under exports section")
+    public void userClicksOnExportToCsvFileButtonUnderExportsSection() {
+        listsPage.clickOnExportCSVFile();
+    }
+
+    @When("user clicks one e")
+    public void userClicksOneE() {
+    }
+
+    @And("user clicks on Export_to_xml_file button under exports section")
+    public void userClicksOnExport_to_xml_fileButtonUnderExportsSection() {
+    }
+
+    @Then("export file should be downloaded")
+    public void exportFileShouldBeDownloaded() {
+        listsPage.clickOnExportXMLFile();
+    }
+
+    @Then("the action should be saved")
+    public void theActionShouldBeSaved() {
+    }
+
+    @And("user enters description of export")
+    public void userEntersDescriptionOfExport() {
+    }
+
+    @And("user selects type of export type")
+    public void userSelectsTypeOfExportType() {
+    }
+
+    @And("user selects interval type")
+    public void userSelectsIntervalType() {
+    }
+
+    @And("user activates the export")
+    public void userActivatesTheExport() {
+    }
+
+    @And("user clicks on add button for export type")
+    public void userClicksOnAddButtonForExportType() {
     }
 }

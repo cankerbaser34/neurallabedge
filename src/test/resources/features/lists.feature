@@ -1,6 +1,5 @@
 Feature: Functionality of List page
 
-
   Background:
     Given user is on List Page
 
@@ -43,30 +42,26 @@ Feature: Functionality of List page
     And user enters newplate in input field
     And user clicks save button for newplate
 
-
-
     # verifing step is missing
 
-    Scenario: Validate  the  functionality of delete option for saved plate under new list
-      When user clicks on test list
-      And user clicks on List of licence plates section
-      And user clicks on delete button to delete new plate
-      And user clicks yes to confirm deleting saved plate
-      Then user should be deleted from the list
+  Scenario: Validate  the  functionality of delete option for saved plate under new list
+    When user clicks on test list
+    And user clicks on List of licence plates section
+    And user clicks on delete button to delete new plate
+    And user clicks yes to confirm deleting saved plate
+    Then user should be deleted from the list
 
 
+  Scenario: Validate that user can add a new action to all plates list
 
-
-Scenario: Validate that user can add a new action to all plates list
-
-  When user clicks on all plates list
-  And user clicks on action for the list field
-  And user clicks on add action button
-  And user enters description of action
-  And user selects type of action
-  And user enables the action
-  When user clicks on save button for new action
-
+    When user clicks on all plates list
+    And user clicks on action for the list field
+    And user clicks on add action button
+    And user enters description of action
+    And user selects type of action
+    And user enables the action
+    When user clicks on save button
+    Then the action should be saved
 
   @lists
   Scenario: Validate that user can import xml/css action file
@@ -74,7 +69,26 @@ Scenario: Validate that user can add a new action to all plates list
     And user clicks on action for the list field
     And user clicks on select import XMLCSV file button
 
-    Scenario: Validate the functionality of adding an ftp match action
-      When user clicks on Export_all_data button
-      And user clicks on exports section
-      And user clicks on add button
+  Scenario: Validate the functionality of exporttoCsvfile button under exports for the list
+    When user clicks on all plates list
+    And user clicks on exports for the list section
+    And user clicks on Export to Csv file button under exports section
+    Then exports should be downloaded
+
+  @lists1
+  Scenario: Validate the functionality of exportoxmlfile button under exports for the list
+    When user clicks on all plates list
+    And user clicks on exports for the list section
+    And user clicks on Export_to_xml_file button under exports section
+    Then export file should be downloaded
+
+  Scenario: Validate the functionality of adding ftp matching type
+
+    When user clicks on all plates list
+    And user clicks on exports section
+    And user clicks on add button for export type
+    And user enters description of export
+    And user selects type of export type
+    And user selects interval type
+    And user activates the export
+    And user clicks on save button

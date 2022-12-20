@@ -46,18 +46,17 @@ Feature: Checking general configuration options
     Then the plate image is not saved
 
 
-
-    Scenario: Validate the functionality of save the plate image option when its selected
-      When user  clicks on expert option
-      And user selects save the plate image option
-      And user goes to lpr_config page
-      And user clicks on freeflowMotion section
-      And user selects none freeflowmotion filter mode
-      And user clicks on restart service button
-      And user goes to review page
-      And user clicks on search button
-      And user make a right click  on time column
-      Then the plate image is  saved
+  Scenario: Validate the functionality of save the plate image option when its selected
+    When user  clicks on expert option
+    And user selects save the plate image option
+    And user goes to lpr_config page
+    And user clicks on freeflowMotion section
+    And user selects none freeflowmotion filter mode
+    And user clicks on restart service button
+    And user goes to review page
+    And user clicks on search button
+    And user make a right click  on time column
+    Then the plate image is  saved
 
   Scenario: Validate the functionality of image quality checkbox
     When user  clicks on expert option
@@ -211,12 +210,13 @@ Feature: Checking general configuration options
     And user selects days from type of purge
     And user clicks on restart service button on GeneralConfig page
 
-  @genfeature
-    Scenario:  Validate that purge option is set to day
-      When user  clicks on purge options
-      And user selects day radio option
-      And user selects days from type of purge
-      And user clicks on restart service button on GeneralConfig page
+
+    @genconfig
+  Scenario:  Validate that purge option is set to day
+    When user  clicks on purge options
+    And user selects day radio option
+    And user selects days from type of purge
+    And user clicks on restart service button on GeneralConfig page
 
     # Heartbeat options start from here
 
@@ -297,7 +297,6 @@ Feature: Checking general configuration options
     And user clicks export database button
     Then database should be downloaded
 
-
   Scenario: Validate the functionality of export VPAR config button
     When user clicks on maintenance option
     And user clicks on export VPAR config button
@@ -308,6 +307,32 @@ Feature: Checking general configuration options
     When user clicks on Customized options section
     And user clicks on Export to Csv file button
     Then customized options should be downloaded
+
+
+  Scenario: Validate the functionality of adding an option under custumized options
+    When user clicks on Customized options section
+    And user clicks on add button under general configuration
+    And user enters a name into name input field
+    And user enters a value into value input field
+    And user clicks on save button
+    Then new option should be added
+
+
+
+  Scenario: Validate the functionality of editing saved option
+    When user clicks on Customized options section
+    And user clicks on edit button for saved customized value
+    And user changes the name of the value
+    And user changes the value
+    And user clicks on save button
+    Then option should be edited
+
+
+  Scenario: Validate the functionality of deleting saved customized options
+    When  user clicks on Customized options section
+    And user clicks on delete button of desired option
+    And user clicks on yes button to delete
+     And the option should be deleted
 
 
 

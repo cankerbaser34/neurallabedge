@@ -133,6 +133,5 @@ Feature: Checking the functionality of all the action types
     And user rights click on id column
     And user  clicks on sort decending
 
-  @Auditpage1
-    Scenario: Validate the functionality of zkteco enterance
+
 

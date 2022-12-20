@@ -516,8 +516,55 @@ public class GeneralConfigStepDefinitions {
 
     @And("user selects day radio option")
     public void userSelectsDayRadioOption() {
+        generalConfigPage.selectPurgeDaysOption();
 
-        generalConfigPage.clickOnVparConfig();
+    }
 
+    @When("user clicks on add button under general configuration")
+    public void userClicksOnAddButtonUnderGeneralConfiguration() {
+        generalConfigPage.clickOnAddCustomValue();
+    }
+
+    @And("user enters a name into name input field")
+    public void userEntersANameIntoNameInputField() {
+        generalConfigPage.enterValueName();
+    }
+
+    @And("user enters a value into value input field")
+    public void userEntersAValueIntoValueInputField() {
+        generalConfigPage.enterValue();
+    }
+
+    @And("user changes the name of the value")
+    public void userChangesTheNameOfTheValue() {
+        generalConfigPage.editSavedValueName();
+
+    }
+
+    @And("user changes the value")
+    public void userChangesTheValue() {
+        generalConfigPage.editSavedValue();
+    }
+
+    @And("user clicks on edit button for saved customized value")
+    public void userClicksOnEditButtonForSavedCustomizedValue() {
+        generalConfigPage.clickOnEditButton();
+    }
+
+    @And("user clicks on delete button of desired option")
+    public void userClicksOnDeleteButtonOfDesiredOption() {
+        generalConfigPage.clickOnDeleteButton();
+    }
+
+    @Then("new option should be added")
+    public void newOptionShouldBeAdded() {
+    }
+
+    @Then("option should be edited")
+    public void optionShouldBeEdited() {
+    }
+
+    @And("the option should be deleted")
+    public void theOptionShouldBeDeleted() {
     }
 }

@@ -48,7 +48,7 @@ public class Base {
     }
 
     public static WebElement waitForClickablility(WebElement element, int timeout) {
-        WebDriverWait wait = new WebDriverWait(Driver.get(ConfigurationReader.get("url")), timeout);
+        WebDriverWait wait = new WebDriverWait(Driver.get(ConfigurationReader.get("")), timeout);
         return wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 

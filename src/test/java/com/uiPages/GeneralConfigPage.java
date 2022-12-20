@@ -8,9 +8,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import java.lang.ref.WeakReference;
-import java.util.concurrent.TimeUnit;
-
 public class GeneralConfigPage extends Base {
 
     public String mac_adress_text;
@@ -160,26 +157,26 @@ public class GeneralConfigPage extends Base {
     @FindBy(css = "#group17")
     public WebElement purge_options_section;
 
-    @FindBy(css = "body > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(10) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1)")
+    @FindBy(xpath = "//div[contains(text(),'HOUR')]")
     public WebElement purge_interval_hour_radio;
 
-    @FindBy(css = "div[id='dx-b97aeb8b-e0d9-c893-c9b7-d74113aca688'] div[class='dx-radiobutton-icon dx-radiobutton-icon-checked']")
+    @FindBy(xpath = "//div[@class='dx-item-content'][normalize-space()='DAY']")
     public WebElement purge_interval_day_radio;
 
-    @FindBy(css = "#dx-b97aeb8b-e0d9-c893-c9b7-d74113aca688")
+    @FindBy(xpath = "//div[contains(text(),'WEEK')]")
     public WebElement purge_interval_week_radio;
 
-    @FindBy(css = "div[id='dx-b97aeb8b-e0d9-c893-c9b7-d74113aca688'] div[class='dx-radio-value-container']")
+    @FindBy(xpath = "//div[contains(text(),'MONTH')]")
     public WebElement purge_interval_month_radio;
 
-    @FindBy(xpath = "(//div[@role='radio'])[10]")
+    @FindBy(xpath = "(//div[contains(text(),'DISABLED')]")
     public WebElement type_purge_disabled_radio;
 
-    @FindBy(css = "(body > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(10) > div:nth-child(3) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2)")
+    @FindBy(xpath = "//div[contains(text(),'DAYS')]")
     public WebElement type_purge_days_radio;
 
-    @FindBy(xpath = "(//div[@class='dx-radio-value-container'])[12]")
-    public WebElement type_purge_freespace_radi0;
+    @FindBy(xpath = "(//div[contains(text(),'FREESPACE')]")
+    public WebElement type_purge_freespace_radio;
 
     @FindBy(css = "#elem19")
     public WebElement days_preserve_storage;
@@ -203,7 +200,6 @@ public class GeneralConfigPage extends Base {
 
     @FindBy(css = "#elem34 > div > input")
     public WebElement hearbeat_timing_seconds;
-
 
     @FindBy(css = "#elem35 > div > input")
     public WebElement heartbeat_ip;
@@ -281,7 +277,7 @@ public class GeneralConfigPage extends Base {
     @FindBy(xpath = "(//input[@id='dx-col-5'])[1]")
     public WebElement name_value_input;
 
-    @FindBy(xpath = "(//div[@class='dx-texteditor-container'])[15]")
+    @FindBy(xpath = "(//input[@id='dx-col-6'])[1]")
     public WebElement value_input;
 
     @FindBy(css = ".dx-link.dx-link-save")
@@ -712,6 +708,7 @@ public class GeneralConfigPage extends Base {
 
     public void openCustomizedOptions() {
         custumized_options.click();
+        Base.waitFor(5);
     }
 
     public void clickOnCustomExportCsv() {
@@ -745,10 +742,49 @@ public class GeneralConfigPage extends Base {
 
 
     public void selectPurgeDaysOption() {
-
         purge_interval_day_radio.click();
 
+    }
 
+    public void clickOnAddCustomValue() {
+        add_value_button.click();
+        Base.waitFor(3);
+    }
+
+    public void enterValueName() {
+        name_value_input.sendKeys("char");
+        Base.waitFor(3);
+    }
+
+    public void enterValue() {
+        value_input.click();
+        Base.waitFor(2);
+        value_input.sendKeys("3");
+        Base.waitFor(2);
+    }
+
+    public void clickOnEditButton() {
+        edit_data_button.click();
+    }
+
+    public void editSavedValueName() {
+        name_value_input.click();
+        Base.waitFor(2);
+        name_value_input.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+        name_value_input.sendKeys("tehe");
+        Base.waitFor(2);
+    }
+
+    public void editSavedValue() {
+
+        value_input.click();
+        Base.waitFor(2);
+        value_input.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+        name_value_input.sendKeys("5");
+    }
+
+    public void clickOnDeleteButton() {
+        delete_data_button.click();
     }
 
 }

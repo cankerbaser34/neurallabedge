@@ -16,7 +16,6 @@ public class ListsPage {
         PageFactory.initElements(Driver.get(ConfigurationReader.get("url")), this);
     }
 
-
     @FindBy(css = "#alist")
     public WebElement list_page_href;
 
@@ -119,20 +118,29 @@ public class ListsPage {
 
     @FindBy(xpath = "(//div[@title='Add a row'])[3]")
     public WebElement add_action_button;
+
     @FindBy(css = "#actionlist")
     public WebElement action_section;
+
     @FindBy(xpath = "(//div[@class='dx-texteditor-container'])[5]")
     public WebElement description_action_input;
-    @FindBy(xpath = "(//input[@id='dx-col-29'])[1]")
+
+    @FindBy(css = "body > div:nth-child(2) > div:nth-child(1) > div:nth-child(4) > div:nth-child(2) > div:nth-child(6) > div:nth-child(1) > div:nth-child(6) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(2) > tr:nth-child(1) > td:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > input:nth-child(1)")
     public WebElement action_description;
 
-    @FindBy(xpath = "(//input[@id='dx-col-25'])[1]")
-    public WebElement select_action_dropdown;
+    @FindBy(css = "body > div:nth-child(2) > div:nth-child(1) > div:nth-child(4) > div:nth-child(2) > div:nth-child(6) > div:nth-child(1) > div:nth-child(6) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(2) > tr:nth-child(1) > td:nth-child(3) > div:nth-child(1) > div:nth-child(1)")
+    public WebElement select_action_div;
+
+    @FindBy(css = "body > div:nth-child(2) > div:nth-child(1) > div:nth-child(4) > div:nth-child(2) > div:nth-child(6) > div:nth-child(1) > div:nth-child(6) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(2) > tr:nth-child(1) > td:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > input:nth-child(1)")
+    public WebElement select_action_input;
+
+    @FindBy(css = "body > div:nth-child(2) > div:nth-child(1) > div:nth-child(4) > div:nth-child(2) > div:nth-child(6) > div:nth-child(1) > div:nth-child(6) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(2) > tr:nth-child(1) > td:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > input:nth-child(1)")
+    public WebElement action_activate;
 
     @FindBy(css = "div[id='ExportActionsCSV'] div[class='dx-button-content']")
     public WebElement export_to_CSV_file_button;
 
-    @FindBy(css = "div[id='ExportActionsXML'] div[class='dx-button-content']")
+    @FindBy(css = "#ExportXML")
     public WebElement export_to_xmlfile;
 
 
@@ -199,8 +207,6 @@ public class ListsPage {
 
     @FindBy(css = ".dx-link.dx-link-cancel")
     public WebElement cancel_import_href;
-
-
 
 
     public void navToListPage() {
@@ -368,6 +374,7 @@ public class ListsPage {
 
     public void clickOnAddAction() {
         add_action_button.click();
+        Base.waitFor(4);
     }
 
     public void entersDescriptionofAction() {
@@ -376,19 +383,53 @@ public class ListsPage {
     }
 
     public void selectActionType() {
-        select_action_dropdown.sendKeys("Trigger server");
-        Base.waitFor(4);
-
+        select_action_div.click();
+        Base.waitFor(2);
+        select_action_input.sendKeys("Trigger server");
+        Base.waitFor(2);
+        select_action_input.sendKeys(Keys.ENTER);
+        Base.waitFor(2);
+        //select_action_input.sendKeys();
     }
 
     public void clickOnImportActionFile() throws IOException {
 
-       select_import_xml.click();
-
+        select_import_xml.click();
         Runtime.getRuntime().exec("C:\\Users\\cihan.baser\\20221212140602_0_LOCAL_DATA_EXPORT_CSV_ALLLIST");
         Base.waitFor(5);
 
-
     }
+
+    public void selectActiveAction() {
+        action_activate.click();
+        // action_activate.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+        Base.waitFor(3);
+        // action_activate.clear();
+        action_activate.sendKeys("Enabled");
+        Base.waitFor(2);
+        action_activate.sendKeys(Keys.ENTER);
+        Base.waitFor(3);
+    }
+
+    public void clickOnExportsForList() {
+        export_list_open.click();
+        Base.waitFor(3);
+    }
+
+    public void clickOnExportCSVFile() {
+        export_to_Csv_file.click();
+        Base.waitFor(4);
+    }
+
+    public void clickOnExportXMLFile() {
+        export_to_xmlfile.click();
+        Base.waitFor(3);
+    }
+
+    public void clickOnAddExport() {
+        add_export_button.click();
+        Base.waitFor(2);
+    }
+
 
 }
