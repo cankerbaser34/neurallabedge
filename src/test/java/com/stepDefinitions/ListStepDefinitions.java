@@ -207,6 +207,8 @@ public class ListStepDefinitions {
 
     @And("user clicks on Export_to_xml_file button under exports section")
     public void userClicksOnExport_to_xml_fileButtonUnderExportsSection() {
+
+        listsPage.clickOnExportXMLFile();
     }
 
     @Then("export file should be downloaded")
@@ -220,21 +222,74 @@ public class ListStepDefinitions {
 
     @And("user enters description of export")
     public void userEntersDescriptionOfExport() {
+
+        listsPage.enterDescriptionExport();
     }
 
     @And("user selects type of export type")
     public void userSelectsTypeOfExportType() {
+
+        listsPage.enterExportType();
     }
 
     @And("user selects interval type")
     public void userSelectsIntervalType() {
+        listsPage.enterExportInterval();
     }
 
     @And("user activates the export")
     public void userActivatesTheExport() {
+        listsPage.setExportActivate();
     }
 
     @And("user clicks on add button for export type")
     public void userClicksOnAddButtonForExportType() {
+        listsPage.clickOnAddExport();
+    }
+
+    @And("user clicks on interval section to open export properties")
+    public void userClicksOnIntervalSectionToOpenExportProperties() {
+        listsPage.openExportProperties();
+    }
+
+    @And("user enters host api")
+    public void userEntersHostApi() {
+        listsPage.exportSetHost();
+    }
+
+    @And("user enters port number")
+    public void userEntersPortNumber() {
+
+    }
+
+    @And("user selects format type")
+    public void userSelectsFormatType() {
+
+    }
+
+    @And("user enters folder name")
+    public void userEntersFolderName() {
+        listsPage.exportSetFolderName();
+    }
+
+    @And("user enters username")
+    public void userEntersUsername() {
+        listsPage.exportSetUserName();
+    }
+
+    @And("user enters password")
+    public void userEntersPassword() {
+        listsPage.exportSetPassword();
+    }
+
+    @Then("the export should arrive to its destination")
+    public void theExportShouldArriveToItsDestination() {
+
+    }
+
+    @And("user clicks on delete button to delete desired action")
+    public void userClicksOnDeleteButtonToDeleteDesiredAction() {
+        listsPage.clickOnDeleteAction();
+
     }
 }

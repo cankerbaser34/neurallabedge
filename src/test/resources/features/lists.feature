@@ -52,8 +52,8 @@ Feature: Functionality of List page
     Then user should be deleted from the list
 
 
+  @lists1
   Scenario: Validate that user can add a new action to all plates list
-
     When user clicks on all plates list
     And user clicks on action for the list field
     And user clicks on add action button
@@ -62,6 +62,13 @@ Feature: Functionality of List page
     And user enables the action
     When user clicks on save button
     Then the action should be saved
+
+  @lists1
+  Scenario: Validate the functionality of delete button for an action
+    When user clicks on all plates list
+    And user clicks on action for the list field
+    And user clicks on delete button to delete desired action
+    And user clicks on yes button to delete
 
   @lists
   Scenario: Validate that user can import xml/css action file
@@ -75,20 +82,28 @@ Feature: Functionality of List page
     And user clicks on Export to Csv file button under exports section
     Then exports should be downloaded
 
-  @lists1
+
   Scenario: Validate the functionality of exportoxmlfile button under exports for the list
     When user clicks on all plates list
     And user clicks on exports for the list section
     And user clicks on Export_to_xml_file button under exports section
     Then export file should be downloaded
 
-  Scenario: Validate the functionality of adding ftp matching type
 
+  Scenario: Validate the functionality of adding ftp matching type
     When user clicks on all plates list
-    And user clicks on exports section
+    And user clicks on exports for the list section
     And user clicks on add button for export type
     And user enters description of export
     And user selects type of export type
     And user selects interval type
     And user activates the export
     And user clicks on save button
+    And user clicks on interval section to open export properties
+    And user enters host api
+    And user enters port number
+    And user selects format type
+    And user enters folder name
+    And user enters username
+    And user enters password
+    Then the export should arrive to its destination
