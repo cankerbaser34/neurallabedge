@@ -12,6 +12,11 @@ import java.io.IOException;
 
 public class ListsPage {
 
+    String host = ConfigurationReader.get("ftp_post");
+    String username = ConfigurationReader.get("ftp_user");
+    String folder_name = ConfigurationReader.get("ftp_folder_name");
+    String password = ConfigurationReader.get("ftp_password");
+
     public ListsPage() {
         PageFactory.initElements(Driver.get(ConfigurationReader.get("url")), this);
     }
@@ -119,8 +124,12 @@ public class ListsPage {
     @FindBy(xpath = "(//div[@title='Add a row'])[3]")
     public WebElement add_action_button;
 
-    @FindBy(css = "tr[class='dx-row dx-data-row dx-row-lines dx-column-lines dx-state-hover'] a[class='dx-link dx-link-delete']")
+    @FindBy(xpath = "(//a[@class='dx-link dx-link-delete'][normalize-space()='Delete'])[5]")
     public WebElement delete_action_button;
+
+    @FindBy(css = "#gridContainer4 > div > div.dx-datagrid-rowsview.dx-datagrid-nowrap.dx-scrollable.dx-visibility-change-handler.dx-scrollable-both.dx-scrollable-simulated.dx-scrollable-customizable-scrollbars.dx-last-row-border > div > div > div.dx-scrollable-content > div > table > tbody > tr:nth-child(1) > td.dx-command-edit > a.dx-link.dx-link-delete")
+    public WebElement delete_exports_button;
+
     @FindBy(css = "#actionlist")
     public WebElement action_section;
 
@@ -142,8 +151,11 @@ public class ListsPage {
     @FindBy(css = "div[id='ExportActionsCSV'] div[class='dx-button-content']")
     public WebElement export_to_CSV_file_button;
 
-    @FindBy(css = "#ExportXML")
+    @FindBy(xpath = "#ExportXML")
     public WebElement export_to_xmlfile;
+
+    @FindBy(css = "#ExportActionsXML")
+    public WebElement action_export_xml;
 
 
     // Export locators
@@ -218,32 +230,71 @@ public class ListsPage {
     public WebElement import_list_open;
 
     @FindBy(xpath = "(//span[@class='dx-button-text'])[12]")
-    public WebElement imoort_xml_csv_button;
+    public WebElement import_xml_csv_button;
 
     @FindBy(css = "#deleteold")
     public WebElement delete_list_elem_import_checkbox;
 
-    @FindBy(xpath = "(//div[@title='Add a row'])[5]")
+    @FindBy(css = "div[id='gridContainer5'] div[class='dx-item dx-toolbar-item dx-toolbar-button dx-toolbar-item-auto-hide dx-toolbar-text-auto-hide']")
     public WebElement add_import_button;
 
-    @FindBy(xpath = "(//div[@title='Add a row'])[5]")
+    @FindBy(css = "body > div:nth-child(2) > div:nth-child(1) > div:nth-child(6) > div:nth-child(2) > div:nth-child(6) > div:nth-child(1) > div:nth-child(6) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(2) > tr:nth-child(1) > td:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > input:nth-child(1)")
     public WebElement description_import;
 
-    @FindBy(xpath = "(//input[@id='dx-col-34'])[1]")
+    @FindBy(css = "body > div:nth-child(2) > div:nth-child(1) > div:nth-child(6) > div:nth-child(2) > div:nth-child(6) > div:nth-child(1) > div:nth-child(6) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(2) > tr:nth-child(1) > td:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > input:nth-child(1)")
     public WebElement import_type;
 
-    @FindBy(xpath = "(//input[@id='dx-col-35'])[1]")
-    public WebElement interval_input;
+    @FindBy(css = "body > div:nth-child(2) > div:nth-child(1) > div:nth-child(6) > div:nth-child(2) > div:nth-child(6) > div:nth-child(1) > div:nth-child(6) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(2) > tr:nth-child(1) > td:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > input:nth-child(1)")
+    public WebElement import_interval_input;
 
 
-    @FindBy(xpath = "(//div[@class='dx-datagrid-content'])[5]")
-    public WebElement active_import_list;
+    @FindBy(css = "body > div:nth-child(2) > div:nth-child(1) > div:nth-child(6) > div:nth-child(2) > div:nth-child(6) > div:nth-child(1) > div:nth-child(6) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(2) > tr:nth-child(1) > td:nth-child(5) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > input:nth-child(1)")
+    public WebElement import_activate_list;
 
     @FindBy(css = ".dx-link.dx-link-save")
     public WebElement save_import_href;
 
+    @FindBy(xpath = "//tr[@class='dx-row dx-data-row dx-row-lines dx-column-lines dx-state-hover']//a[@class='dx-link dx-link-delete'][normalize-space()='Delete']")
+    public WebElement import_delete_list;
+
     @FindBy(css = ".dx-link.dx-link-cancel")
     public WebElement cancel_import_href;
+
+    @FindBy(xpath = "//td[normalize-space()='FTP list']")
+    public WebElement ftp_row;
+
+    @FindBy(css = "div[id='elemhost200'] input[role='textbox']")
+    public WebElement import_ftp_list_host;
+
+    @FindBy(css = "div[id='elemport200'] input[role='spinbutton']")
+    public WebElement getImport_ftp_list_port;
+
+    @FindBy(xpath = "//div[contains(text(),'XML_NOTDELETE')]")
+    public WebElement xml_notdelete_radio;
+
+    @FindBy(xpath = "//div[contains(text(),'CSV_NOTDELETE')]")
+    public WebElement csv_not_delete_radio;
+
+    @FindBy(css = "div[id='dx-31170d59-8522-5f93-40fb-be8e893cc7b6'] div[class='dx-item-content']")
+    public WebElement csv_radio;
+
+    @FindBy(css = "div[id='dx-31170d59-8522-5f93-40fb-be8e893cc7b6'] div[class='dx-radiobutton-icon dx-radiobutton-icon-checked']")
+    public WebElement xml_radio;
+
+    @FindBy(css = "div[id='elemparam2200'] input[role='textbox']")
+    public WebElement foldername_ftp_list_import;
+
+    @FindBy(css = "div[id='elemparam3200'] input[role='textbox']")
+    public WebElement user_name_ftplist_import;
+
+    @FindBy(css = "div[id='elemparam4200'] input[role='textbox']")
+    public WebElement password_ftplist_import;
+
+    @FindBy(css = "div[id='dx-31170d59-8522-5f93-40fb-be8e893cc7b6'] div[class='dx-item-content']")
+    public WebElement xml_ftplist_import;
+
+    @FindBy(css = "div[id='dx-32a67e81-70e3-8319-1a6f-7c239bc41f12'] div[class='dx-item-content']")
+    public WebElement ftps_ftplist_import;
 
 
     public void navToListPage() {
@@ -429,9 +480,11 @@ public class ListsPage {
 
     public void clickOnImportActionFile() throws IOException {
 
-        select_import_xml.click();
-        Runtime.getRuntime().exec("C:\\Users\\cihan.baser\\20221212140602_0_LOCAL_DATA_EXPORT_CSV_ALLLIST");
-        Base.waitFor(5);
+        //select_import_xml.click();
+        select_import_xml.sendKeys("Users/Damla/Documents/20230103152734_0_LOCAL_DATA_EXPORT_CSV_ALLLIST");
+        Base.waitFor(2);
+        // Runtime.getRuntime().exec("C:\\Users\\Damla\\Documents\\20230103152734_0_LOCAL_DATA_EXPORT_CSV_ALLLIST");
+        // Base.waitFor(5);
 
     }
 
@@ -448,7 +501,7 @@ public class ListsPage {
 
     public void clickOnExportsForList() {
         export_list_open.click();
-        Base.waitFor(3);
+        Base.waitFor(2);
     }
 
     public void clickOnExportCSVFile() {
@@ -505,7 +558,7 @@ public class ListsPage {
     }
 
     public void exportSetHost() {
-        String host = ConfigurationReader.get("ftp_post");
+
         export_host_input.click();
         export_host_input.sendKeys(Keys.chord(Keys.CONTROL, "a"));
         Base.waitFor(3);
@@ -516,7 +569,7 @@ public class ListsPage {
     }
 
     public void exportSetFolderName() {
-        String folder_name = ConfigurationReader.get("ftp_folder_name");
+
         export_folder_name_input.click();
         Base.waitFor(3);
         export_folder_name_input.sendKeys(folder_name);
@@ -524,7 +577,7 @@ public class ListsPage {
     }
 
     public void exportSetUserName() {
-        String username = ConfigurationReader.get("ftp_user");
+
         export_username_input.click();
         Base.waitFor(3);
         export_username_input.sendKeys(username);
@@ -532,7 +585,7 @@ public class ListsPage {
     }
 
     public void exportSetPassword() {
-        String password = ConfigurationReader.get("ftp_password");
+
         export_password_input.click();
         Base.waitFor(3);
         export_password_input.sendKeys(password);
@@ -543,5 +596,112 @@ public class ListsPage {
     public void clickOnDeleteAction() {
         delete_action_button.click();
         Base.waitFor(3);
+    }
+
+    public void clickOnDeleteExport() {
+        delete_exports_button.click();
+        Base.waitFor(3);
+    }
+
+    public void clickOnExportCSVfile() {
+        export_to_CSV_file_button.click();
+        Base.waitFor(3);
+    }
+
+    public void clickOnExportXMLAction() {
+        action_export_xml.click();
+        Base.waitFor(4);
+    }
+
+    public void opensImportSection() {
+        import_list_open.click();
+        Base.waitFor(5);
+    }
+
+    public void clickOnAddImport() {
+
+        add_import_button.click();
+        Base.waitFor(3);
+    }
+
+    public void enterDescritionImport() {
+
+        description_import.click();
+        Base.waitFor(2);
+        description_import.sendKeys("Ftp");
+        Base.waitFor(2);
+        description_import.sendKeys(Keys.ENTER);
+
+    }
+
+    public void selectFtpListImport() {
+        import_type.click();
+        Base.waitFor(2);
+        import_type.sendKeys("FTP list");
+        Base.waitFor(2);
+        import_type.sendKeys(Keys.ENTER);
+
+    }
+
+    public void selectIntervalImport() {
+
+        import_interval_input.click();
+        Base.waitFor(2);
+        import_interval_input.sendKeys("Minute");
+        Base.waitFor(1);
+        import_interval_input.sendKeys(Keys.ENTER);
+    }
+
+    public void selectActivateImport() {
+
+        import_activate_list.click();
+        Base.waitFor(2);
+        import_activate_list.sendKeys("Enabled");
+        Base.waitFor(2);
+        import_activate_list.sendKeys(Keys.ENTER);
+        Base.waitFor(2);
+    }
+
+    public void deleteImportList() {
+        import_delete_list.click();
+        Base.waitFor(2);
+    }
+
+    public void clickOnFtpListImport() {
+        ftp_row.click();
+    }
+
+    public void setImportFtpListHost() {
+        import_ftp_list_host.click();
+        import_ftp_list_host.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+        Base.waitFor(3);
+        import_ftp_list_host.clear();
+        Base.waitFor(3);
+        import_ftp_list_host.sendKeys(host);
+        Base.waitFor(3);
+    }
+
+    public void setImportFolderName() {
+
+        foldername_ftp_list_import.click();
+        Base.waitFor(3);
+        foldername_ftp_list_import.sendKeys(folder_name);
+        Base.waitFor(3);
+    }
+
+    public void setUserImportFtpList() {
+
+        user_name_ftplist_import.click();
+        Base.waitFor(2);
+        user_name_ftplist_import.sendKeys(username);
+    }
+
+    public void setPasswordFptListImport() {
+
+        password_ftplist_import.click();
+        Base.waitFor(2);
+        password_ftplist_import.sendKeys(password);
+        password_ftplist_import.sendKeys(Keys.ENTER);
+        Base.waitFor(2);
     }
 }

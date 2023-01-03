@@ -1,5 +1,5 @@
-Feature: Functionality of List page
 
+Feature: Functionality of List page
   Background:
     Given user is on List Page
 
@@ -43,7 +43,6 @@ Feature: Functionality of List page
     And user clicks save button for newplate
 
     # verifing step is missing
-
   Scenario: Validate  the  functionality of delete option for saved plate under new list
     When user clicks on test list
     And user clicks on List of licence plates section
@@ -52,7 +51,6 @@ Feature: Functionality of List page
     Then user should be deleted from the list
 
 
-  @lists1
   Scenario: Validate that user can add a new action to all plates list
     When user clicks on all plates list
     And user clicks on action for the list field
@@ -63,18 +61,32 @@ Feature: Functionality of List page
     When user clicks on save button
     Then the action should be saved
 
-  @lists1
+
   Scenario: Validate the functionality of delete button for an action
     When user clicks on all plates list
     And user clicks on action for the list field
     And user clicks on delete button to delete desired action
     And user clicks on yes button to delete
 
-  @lists
+  @lists1
   Scenario: Validate that user can import xml/css action file
     When user clicks on all plates list
     And user clicks on action for the list field
     And user clicks on select import XMLCSV file button
+
+
+  Scenario: Validate the functionality of exportToCSVfile button under action
+    When user clicks on all plates list
+    And user clicks on action for the list field
+    And user clicks on exports exports to CSV file button
+    Then configured actions should be downloaded as csv file
+
+
+  Scenario: Validate the functionality of exportToXMLfile button under action
+    When user clicks on all plates list
+    And user clicks on action for the list field
+    And user clicks on Export_to_xml_file button under action section
+    Then configured actions should be downloaded as xml file
 
   Scenario: Validate the functionality of exporttoCsvfile button under exports for the list
     When user clicks on all plates list
@@ -107,3 +119,44 @@ Feature: Functionality of List page
     And user enters username
     And user enters password
     Then the export should arrive to its destination
+
+
+  Scenario: Validate the functionality of deleting exports for all list
+    When user clicks on all plates list
+    And user clicks on exports for the list section
+    And user clicks on delete button for exports for all list
+    And user clicks on yes button to delete
+
+
+
+  Scenario: Validate that user can add ftp import to all plate list
+    When user clicks on all plates list
+    And user clicks on imports for the list part
+    And user clicks on add button to create and ftp list import
+    And user enters description of  import
+    And user enters ftp list import type
+    And user selects the interval
+    And user selects active type of import
+    And user clicks on save button
+    And user clicks on created list to configure
+    And user enters host name of the ftp list
+    And user enters port of the ftp list of import
+    And user enters folder name of ftp list of import
+    And users user of ftp list of import
+    And user enters password of ftp list of import
+    And user selects ftp type
+
+
+  Scenario: Validate the functionality  of delete button for import lists
+    When user clicks on all plates list
+    And user clicks on imports for the list part
+    And user clicks on delete button for imports all list
+    And user clicks on yes button to delete
+
+    Scenario: Validate the functionality of selectimportfile option
+
+      When user clicks on all plates list
+      And user clicks on imports for the list part
+      And user clicks on selectImportfile button
+
+

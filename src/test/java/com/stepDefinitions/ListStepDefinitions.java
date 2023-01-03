@@ -185,6 +185,8 @@ public class ListStepDefinitions {
 
     @And("user clicks on exports exports to CSV file button")
     public void userClicksOnExportsExportsToCSVFileButton() {
+        listsPage.clickOnExportCSVfile();
+
     }
 
     @And("exports should be downloaded")
@@ -291,5 +293,95 @@ public class ListStepDefinitions {
     public void userClicksOnDeleteButtonToDeleteDesiredAction() {
         listsPage.clickOnDeleteAction();
 
+    }
+
+    @And("user clicks on delete button for exports for all list")
+    public void userClicksOnDeleteButtonForExportsForAllList() {
+        listsPage.clickOnDeleteExport();
+
+    }
+
+    @Then("configured actions should be downloaded as csv file")
+    public void configuredActionsShouldBeDownloadedAsCsvFile() {
+    }
+
+    @Then("configured actions should be downloaded as xml file")
+    public void configuredActionsShouldBeDownloadedAsXmlFile() {
+    }
+
+    @And("user clicks on Export_to_xml_file button under action section")
+    public void userClicksOnExport_to_xml_fileButtonUnderActionSection() {
+        listsPage.clickOnExportXMLAction();
+    }
+
+    @When("user clicks on imports for the list part")
+    public void userClicksOnImportsForTheListPart() {
+        listsPage.opensImportSection();
+    }
+
+    @And("user clicks on add button to create and ftp list import")
+    public void userClicksOnAddButtonToCreateAndFtpListImport() {
+        listsPage.clickOnAddImport();
+    }
+
+    @And("user enters description of  import")
+    public void userEntersDescriptionOfImport() {
+        listsPage.enterDescritionImport();
+    }
+
+    @And("user enters ftp list import type")
+    public void userEntersFtpListImportType() {
+        listsPage.selectFtpListImport();
+    }
+
+    @And("user selects the interval")
+    public void userSelectsTheInterval() {
+        listsPage.selectIntervalImport();
+    }
+
+    @And("user selects active type of import")
+    public void userSelectsActiveTypeOfImport() {
+        listsPage.selectActivateImport();
+    }
+
+    @And("user clicks on delete button for imports all list")
+    public void userClicksOnDeleteButtonForImportsAllList() {
+
+        listsPage.deleteImportList();
+
+    }
+
+    @And("user clicks on created list to configure")
+    public void userClicksOnCreatedListToConfigure() {
+
+        listsPage.clickOnFtpListImport();
+    }
+
+    @And("user enters host name of the ftp list")
+    public void userEntersHostNameOfTheFtpList() {
+        listsPage.setImportFtpListHost();
+    }
+
+    @And("user enters port of the ftp list of import")
+    public void userEntersPortOfTheFtpListOfImport() {
+    }
+
+    @And("user enters folder name of ftp list of import")
+    public void userEntersFolderNameOfFtpListOfImport() {
+        listsPage.setImportFolderName();
+    }
+
+    @And("users user of ftp list of import")
+    public void usersUserOfFtpListOfImport() {
+        listsPage.setUserImportFtpList();
+    }
+
+    @And("user enters password of ftp list of import")
+    public void userEntersPasswordOfFtpListOfImport() {
+        listsPage.setPasswordFptListImport();
+    }
+
+    @And("user selects ftp type")
+    public void userSelectsFtpType() {
     }
 }

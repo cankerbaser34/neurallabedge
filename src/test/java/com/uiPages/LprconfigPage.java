@@ -460,14 +460,6 @@ public class LprconfigPage extends Base {
     public void setLane() {
 
 
-        Actions builder = null;
-        Action drawAction = builder.moveToElement(lane_image, 0, 0)
-                .clickAndHold()
-                .moveByOffset(250, 50)
-                .release()
-                .build();
-        drawAction.perform();
-
     }
 
     public void selectCloseSlowDistance() {
