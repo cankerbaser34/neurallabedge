@@ -1,5 +1,5 @@
-
 Feature: Functionality of List page
+
   Background:
     Given user is on List Page
 
@@ -68,7 +68,7 @@ Feature: Functionality of List page
     And user clicks on delete button to delete desired action
     And user clicks on yes button to delete
 
-  @lists1
+
   Scenario: Validate that user can import xml/css action file
     When user clicks on all plates list
     And user clicks on action for the list field
@@ -128,7 +128,6 @@ Feature: Functionality of List page
     And user clicks on yes button to delete
 
 
-
   Scenario: Validate that user can add ftp import to all plate list
     When user clicks on all plates list
     And user clicks on imports for the list part
@@ -153,10 +152,10 @@ Feature: Functionality of List page
     And user clicks on delete button for imports all list
     And user clicks on yes button to delete
 
-    Scenario: Validate the functionality of selectimportfile option
-
-      When user clicks on all plates list
-      And user clicks on imports for the list part
-      And user clicks on selectImportfile button
+  @lists1
+  Scenario: Validate the functionality of selectimportfile option
+    When user clicks on all plates list
+    And user clicks on imports for the list part
+    And user clicks on selectImportfile button
 
 

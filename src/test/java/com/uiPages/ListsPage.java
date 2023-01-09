@@ -296,6 +296,9 @@ public class ListsPage {
     @FindBy(css = "div[id='dx-32a67e81-70e3-8319-1a6f-7c239bc41f12'] div[class='dx-item-content']")
     public WebElement ftps_ftplist_import;
 
+    @FindBy(css = "body > div:nth-child(2) > div:nth-child(1) > div:nth-child(6) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > span:nth-child(1)")
+    public WebElement select_importXMLCSV_import;
+
 
     public void navToListPage() {
         list_page_href.click();
@@ -703,5 +706,10 @@ public class ListsPage {
         password_ftplist_import.sendKeys(password);
         password_ftplist_import.sendKeys(Keys.ENTER);
         Base.waitFor(2);
+    }
+
+    public void clickOnSelectImportXmlCsvImport() {
+        select_importXMLCSV_import.click();
+        Base.waitFor(5);
     }
 }

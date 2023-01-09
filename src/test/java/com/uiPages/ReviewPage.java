@@ -2,7 +2,9 @@ package com.uiPages;
 
 import com.utilities.ConfigurationReader;
 import com.utilities.Driver;
+import io.cucumber.java.zh_cn.假如;
 import org.junit.Assert;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -94,9 +96,105 @@ public class ReviewPage extends Base {
     @FindBy(css = ".dx-row.dx-data-row.dx-row-lines.dx-column-lines")
     public List<WebElement> row_tables;
 
+    @FindBy(css = "#lane_list")
+    public WebElement lane_input_field;
+
+    @FindBy(xpath = "//div[contains(text(),'No lane')]")
+    public WebElement nolane_option;
+
+    @FindBy(xpath = "//div[contains(text(),'LANE1')]")
+    public WebElement lane1_option;
+
+    @FindBy(xpath = "//div[contains(text(),'LANE2')]")
+    public WebElement lane2_option;
+
+    @FindBy(css = "#class_list")
+    public WebElement class_input_field;
+
+    @FindBy(xpath = "//div[contains(text(),'UNKNOWN')]")
+    public WebElement unknown_option;
+
+    @FindBy(xpath = "//div[contains(text(),'MOTORBIKE')]")
+    public WebElement motorbike_option;
+
+    @FindBy(xpath = "//div[contains(text(),'CAR')]")
+    public WebElement car_option;
+
+    @FindBy(xpath = "//div[contains(text(),'VAN')]")
+    public WebElement van_option;
+
+    @FindBy(xpath = "//div[contains(text(),'TRUCK')]")
+    public WebElement truck_option;
+
+    @FindBy(xpath = "//div[contains(text(),'BUS')]")
+    public WebElement bus_option;
+
+    @FindBy(xpath = "//div[contains(text(),'PICKUP')]")
+    public WebElement pickup_option;
+
+
+    @FindBy(css = "#maker_list")
+    public WebElement make_input_field;
+
+    @FindBy(xpath = "//div[contains(text(),'AUDI')]")
+    public WebElement audi_option;
+
+    @FindBy(xpath = "//div[contains(text(),'BMW')]")
+    public WebElement bmw_option;
+
+    @FindBy(xpath = "//div[contains(text(),'CHEVROLET')]")
+    public WebElement chevrolet_option;
+
+    @FindBy(xpath = "//div[contains(text(),'CITROEN')]")
+    public WebElement citroen_option;
+
+    @FindBy(xpath = "//div[contains(text(),'FIAT')]")
+    public WebElement fita_option;
+
+
+    @FindBy(css = "#color_list")
+    public WebElement color_input_field;
+
+    @FindBy(css = "div[class='dx-overlay-wrapper dx-dropdowneditor-overlay dx-popup-wrapper dx-dropdownlist-popup-wrapper dx-selectbox-popup-wrapper'] div[class='dx-scrollview-content'] div:nth-child(1) div:nth-child(1)")
+    public WebElement unknown_color;
+
+
+    @FindBy(xpath = "//div[contains(text(),'WHITE')]")
+    public WebElement color_white;
+
+    @FindBy(xpath = "//div[contains(text(),'GREY')]")
+    public WebElement color_grey;
+
+    @FindBy(xpath = "//div[contains(text(),'BLACK')]")
+    public WebElement color_black;
+
+    @FindBy(xpath = "//div[contains(text(),'RED')]")
+    public WebElement color_red;
+
+    @FindBy(xpath = "//div[contains(text(),'ORANGE')]")
+    public WebElement color_orange;
+
+    @FindBy(xpath = "//div[contains(text(),'YELLOW')]")
+    public WebElement color_yellow;
+
+    @FindBy(xpath = "//div[contains(text(),'GREEN')]")
+    public WebElement color_green;
+
+    @FindBy(xpath = "//div[contains(text(),'BLUE')]")
+    public WebElement color_blue;
+
+    @FindBy(css = "div[id='speed1'] input[role='spinbutton']")
+    public WebElement speed_minimum_input_field;
+
+    @FindBy(css = "div[id='speed2'] input[role='spinbutton']")
+    public WebElement speed_maximum_input_field;
 
     @FindBy(css = "#export")
     public WebElement export_button;
+
+
+    @FindBy(xpath = "//img[@title='truck - white']")
+    public List<WebElement> color_white_list;
 
     public void navToReview() {
         review_page.click();
@@ -218,7 +316,99 @@ public class ReviewPage extends Base {
         Assert.assertTrue(td_first_lpr_noimage.getText().contains("LPR"));
     }
 
-    public void assertTrueSaveImage(){
+    public void assertTrueSaveImage() {
         Assert.assertTrue(td_first_show_image.getAttribute("img").contains("cut.jpg"));
+    }
+
+    public void clickOnLaneSection() {
+        lane_input_field.click();
+        Base.waitFor(2);
+    }
+
+    public void selecNoLane() {
+        nolane_option.click();
+    }
+
+    public void selectLane1() {
+        lane1_option.click();
+    }
+
+    public void selectLane2() {
+        lane2_option.click();
+    }
+
+    public void clickOnClassFilter() {
+        class_input_field.click();
+        Base.waitFor(3);
+    }
+
+    public void selectClassCarOption() {
+        car_option.click();
+    }
+
+    public void selectVanOption() {
+        van_option.click();
+    }
+
+    public void selectBusOption() {
+        bus_option.click();
+    }
+
+    public void selectTruckOption() {
+        truck_option.click();
+    }
+
+    public void clickOnColorSection() {
+        color_input_field.click();
+        Base.waitFor(2);
+    }
+
+    public void selectWhiteColor() {
+
+        color_white.click();
+    }
+
+    public void selectGreyColor() {
+        color_grey.click();
+    }
+
+    public void selectRedColor() {
+        color_red.click();
+    }
+
+    public void selectBlackColor() {
+        color_black.click();
+    }
+
+    public void selectOrangeColor() {
+        color_orange.click();
+    }
+
+    public void selectYellowColor() {
+        color_yellow.click();
+    }
+
+    public void selectGreenColor() {
+        color_green.click();
+    }
+
+    public void selectBlueColor() {
+        color_blue.click();
+    }
+
+    public void enterSpeed() {
+      //  speed_minimum_input_field.click();
+        speed_minimum_input_field.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+        Base.waitFor(3);
+        speed_minimum_input_field.clear();
+        Base.waitFor(3);
+        speed_minimum_input_field.sendKeys("10");
+        Base.waitFor(2);
+        speed_maximum_input_field.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+        Base.waitFor(2);
+        speed_maximum_input_field.clear();
+        speed_maximum_input_field.sendKeys("25");
+        Base.waitFor(2);
+
     }
 }

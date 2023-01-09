@@ -384,4 +384,11 @@ public class ListStepDefinitions {
     @And("user selects ftp type")
     public void userSelectsFtpType() {
     }
+
+    @And("user clicks on selectImportfile button")
+    public void userClicksOnSelectImportfileButton() {
+        listsPage.clickOnSelectImportXmlCsvImport();
+    }
+
+
 }

@@ -13,21 +13,17 @@ public class ReviewStepDefintions {
 
     @Given("user is on review page")
     public void userIsOnReviewPage() {
-
         reviewPage.navToReview();
     }
 
     @When("user clicks on search button of review page")
     public void userClicksOnSearchButtonOfReviewPage() {
-
         reviewPage.clickSearch();
         Base.waitFor(3);
-
     }
 
     @Then("all the saved plates should appear on result panel")
     public void allTheSavedPlatesShouldAppearOnResultPanel() {
-
         reviewPage.validateRowTables();
     }
 
@@ -138,9 +134,7 @@ public class ReviewStepDefintions {
 
     @When("user clicks on list section")
     public void userClicksOnListSection() {
-
         reviewPage.openListSection();
-
     }
 
     @And("user selects ALLOWLIST option")
@@ -175,5 +169,128 @@ public class ReviewStepDefintions {
     public void userMakeARightClickOnTimeColumn() {
         reviewPage.doubleClickOnIdColumn();
 
+    }
+
+    @When("user clicks on lane filter option")
+    public void userClicksOnLaneFilterOption() {
+        reviewPage.clickOnLaneSection();
+        Base.waitFor(2);
+    }
+
+
+    @And("user selects nolane option from lane filter section")
+    public void userSelectsNolaneOptionFromLaneFilterSection() {
+        reviewPage.selecNoLane();
+
+    }
+
+    @Then("all the lanes should be nolane under lane column on review page")
+    public void allTheLanesShouldBeNolaneUnderLaneColumnOnReviewPage() {
+    }
+
+    @And("user selects laneone option from lane filter section")
+    public void userSelectsLaneoneOptionFromLaneFilterSection() {
+
+        reviewPage.selectLane1();
+    }
+
+    @Then("all the lanes should be laneone under lane column on review page")
+    public void allTheLanesShouldBeLaneoneUnderLaneColumnOnReviewPage() {
+    }
+
+    @And("user selects lanetwo option from lane filter section")
+    public void userSelectsLanetwoOptionFromLaneFilterSection() {
+        reviewPage.selectLane2();
+    }
+
+    @Then("all the lanes should be lanetwo under lane column on review page")
+    public void allTheLanesShouldBeLanetwoUnderLaneColumnOnReviewPage() {
+    }
+
+    @When("user clicks on class section")
+    public void userClicksOnClassSection() {
+        reviewPage.clickOnClassFilter();
+
+    }
+
+    @And("user selects car option")
+    public void userSelectsCarSection() {
+        reviewPage.selectClassCarOption();
+    }
+
+    @And("all the class column should show cars")
+    public void allTheClassColumnShouldShowCars() {
+    }
+
+    @And("user selects van option")
+    public void userSelectsVanSection() {
+        reviewPage.selectVanOption();
+    }
+
+    @And("all the class column should show vans")
+    public void allTheClassColumnShouldShowVans() {
+    }
+
+    @And("user selects bus option")
+    public void userSelectsBusSection() {
+        reviewPage.selectBusOption();
+    }
+
+    @And("all the class column should show buses")
+    public void allTheClassColumnShouldShowBuses() {
+
+    }
+
+    @And("user selects truck option")
+    public void userSelectsTruckOption() {
+        reviewPage.selectTruckOption();
+    }
+
+    @And("all the class column should show trucks")
+    public void allTheClassColumnShouldShowTrucks() {
+    }
+
+    @When("user clicks on color section")
+    public void userClicksOnColorSection() {
+        reviewPage.clickOnColorSection();
+    }
+
+    @And("user selects white color")
+    public void userSelectsWhiteColor() {
+
+        reviewPage.selectWhiteColor();
+    }
+
+    @Then("all the vehicles color should be white under class column")
+    public void allTheVehiclesColorShouldBeWhiteUnderClassColumn() {
+
+    }
+
+    @And("user selects grey color")
+    public void userSelectsGreyColor() {
+        reviewPage.selectGreyColor();
+    }
+
+    @Then("all the vehicles color should be grey under class column")
+    public void allTheVehiclesColorShouldBeGreyUnderClassColumn() {
+
+    }
+
+    @And("user selects black color")
+    public void userSelectsBlackColor() {
+        reviewPage.selectBlackColor();
+    }
+
+    @Then("all the vehicles color should be black under class column")
+    public void allTheVehiclesColorShouldBeBlackUnderClassColumn() {
+    }
+
+    @When("user on enters minimum speed and maximum speed")
+    public void userOnEntersMinimumSpeedAndMaximumSpeed() {
+        reviewPage.enterSpeed();
+    }
+
+    @And("the speed under speed column should be between given range")
+    public void theSpeedUnderSpeedColumnShouldBeBetweenGivenRange() {
     }
 }
