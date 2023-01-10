@@ -62,6 +62,33 @@ Feature: Functionality of List page
     Then the action should be saved
 
 
+  @lists1
+  Scenario Outline:Validate that user can add a new action to all plate list
+    And user clicks on all plates list
+    When user clicks on action for the list field
+    And user clicks on add button
+    And user enters '<action_descript>'
+    And user selects '<action_type>'
+    And user enables the action
+    When user clicks on save button
+    Then the action should be saved
+
+    Examples:
+      | action_descript        | action_type     |
+      | socket_client          | Socket client   |
+      | socket_server          | Socket server   |
+      | onvif_event            | Onvif event     |
+      | IO_action              | IO              |
+      | FTP_action             | FTP             |
+      | HTTP_action            | HTTP            |
+      | VAST2_action           | VAST2           |
+      | Trigger_action         | Trigger server  |
+      | Wiegand_vivotek_action | Wiegand Vivotek |
+      | email_action           | EMAIL           |
+      | Protocol_pss_action    | Protocol PSS    |
+      | Twin_camera_action     | Twin Camera     |
+
+
   Scenario: Validate the functionality of delete button for an action
     When user clicks on all plates list
     And user clicks on action for the list field
@@ -152,7 +179,7 @@ Feature: Functionality of List page
     And user clicks on delete button for imports all list
     And user clicks on yes button to delete
 
-  @lists1
+
   Scenario: Validate the functionality of selectimportfile option
     When user clicks on all plates list
     And user clicks on imports for the list part

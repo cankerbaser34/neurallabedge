@@ -19,13 +19,13 @@ public class Hooks extends Base {
     public void setUp() {
         Base.clearCookies();
 
-        String camera_ip = ConfigurationReader.get("vivotek_cv25_81");
+        String camera_ip = ConfigurationReader.get("vivotek_ib9365_ht_a");
         String name_password = ConfigurationReader.get("user_password");
         String partial_url = ConfigurationReader.get("vivo_live_url");
         String full_url = "http://" + name_password + camera_ip + partial_url;
 
 
-        String url = ConfigurationReader.get("zktecofull");
+        String url = ConfigurationReader.get("vicon_full_url");
         Driver.get(ConfigurationReader.get("browser")).manage().window().maximize();
         Driver.get(ConfigurationReader.get("browser")).manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         Driver.get(ConfigurationReader.get("browser")).get(full_url);

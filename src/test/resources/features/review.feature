@@ -1,5 +1,6 @@
-Feature:  functionality of review page
 
+@Reviewpage
+Feature:  functionality of review page
   Background:
     Given user is on review page
 
@@ -119,7 +120,7 @@ Feature:  functionality of review page
     Then all the plates listed should be from not_inthe_list
 
 
-  @Reviewpage
+
   Scenario: Validate the functionality of speed filter on review page
     When user on enters minimum speed and maximum speed
     And user clicks on search button of review page

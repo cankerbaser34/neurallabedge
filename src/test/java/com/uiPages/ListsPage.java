@@ -77,7 +77,7 @@ public class ListsPage {
     @FindBy(css = "#plateslist")
     public WebElement platelist_add_open;
 
-    @FindBy(xpath = "(//div[@class='dx-button-content'])[5]")
+    @FindBy(xpath = "/html/body/div[2]/div/div[4]/div[2]/div[4]/div/div[4]/div/div/div[3]/div[1]/div/div")
     public WebElement addlist_newplate_button;
 
     @FindBy(css = "body > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(6) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(2) > tr:nth-child(1) > td:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > input:nth-child(1)")
@@ -471,6 +471,12 @@ public class ListsPage {
         Base.waitFor(3);
     }
 
+    public void enterDescriptionAction(String action_descript) {
+        action_description.sendKeys(action_descript);
+        Base.waitFor(3);
+
+    }
+
     public void selectActionType() {
         select_action_div.click();
         Base.waitFor(2);
@@ -479,6 +485,22 @@ public class ListsPage {
         select_action_input.sendKeys(Keys.ENTER);
         Base.waitFor(2);
         //select_action_input.sendKeys();
+    }
+
+    public void selectActionTypes(String action_type) {
+
+        select_action_div.click();
+        Base.waitFor(2);
+        select_action_input.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+        Base.waitFor(1);
+       // select_action_input.clear();
+        Base.waitFor(2);
+        select_action_input.sendKeys(action_type);
+        Base.waitFor(2);
+        select_action_input.sendKeys(Keys.ENTER);
+        Base.waitFor(2);
+        //select_action_input.sendKeys();
+
     }
 
     public void clickOnImportActionFile() throws IOException {

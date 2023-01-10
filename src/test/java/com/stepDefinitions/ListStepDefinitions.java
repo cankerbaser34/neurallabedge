@@ -391,4 +391,13 @@ public class ListStepDefinitions {
     }
 
 
+    @And("user enters {string}")
+    public void userEntersAction_name(String action_descript) {
+        listsPage.enterDescriptionAction(action_descript);
+    }
+
+    @And("user selects {string}")
+    public void userSelectsAction_type(String action_type) {
+        listsPage.selectActionTypes(action_type);
+    }
 }

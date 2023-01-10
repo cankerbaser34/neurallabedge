@@ -70,12 +70,33 @@ public class GeneralConfigPage extends Base {
     @FindBy(xpath = "//div[contains(text(),'SQUARE')]")
     public WebElement view_type_square_radio;
 
+    @FindBy(xpath = "//div[contains(text(),'realtime')]")
+    public WebElement live_type_real_radio;
+
+    @FindBy(xpath = "//div[contains(text(),'getimage')]")
+    public WebElement live_type_get_image_radio;
+
+    @FindBy(xpath = "//div[contains(text(),'dd/mm/yyyy')]")
+    public WebElement date_dmy_radio;
+
+    @FindBy(xpath = "//div[contains(text(),'mm/dd/yyyy')]")
+    public WebElement date_mdy_radio;
+
+    @FindBy(xpath = "//div[contains(text(),'yyyy/mm/dd')]")
+    public WebElement date_ymd_radio;
+
+    @FindBy(xpath = "//div[contains(text(),'12h')]")
+    public WebElement time_12h_radio;
+
+    @FindBy(xpath = "//div[contains(text(),'24h')]")
+    public WebElement time_24h_radio;
+
+
     @FindBy(xpath = "(//div[@id='multioption37'])/div[1]")
     public WebElement listfield_lane_checkbox;
 
     @FindBy(xpath = "//div[normalize-space()='Lane']")
     public WebElement lane_column;
-
 
     @FindBy(xpath = "//div[normalize-space()='Direction']")
     public WebElement direction_column;
@@ -105,7 +126,7 @@ public class GeneralConfigPage extends Base {
     @FindBy(xpath = "//div[@id='elem37-1']")
     public WebElement listfield_direction_checkbox;
 
-    @FindBy(css = "#elem37-2")
+    @FindBy(css = "#elem39-3")
     public WebElement listfield_confidence_checbox;
 
     @FindBy(css = "#elem37-3")
@@ -157,7 +178,7 @@ public class GeneralConfigPage extends Base {
     @FindBy(css = "#group17")
     public WebElement purge_options_section;
 
-    @FindBy(xpath = "//div[contains(text(),'HOUR')]")
+    @FindBy(xpath = "/html/body/div[3]/div/div[1]/div[10]/div[2]/div[2]/div[1]/div/div[1]")
     public WebElement purge_interval_hour_radio;
 
     @FindBy(xpath = "//div[@class='dx-item-content'][normalize-space()='DAY']")
@@ -172,7 +193,7 @@ public class GeneralConfigPage extends Base {
     @FindBy(xpath = "(//div[contains(text(),'DISABLED')]")
     public WebElement type_purge_disabled_radio;
 
-    @FindBy(xpath = "//div[contains(text(),'DAYS')]")
+    @FindBy(xpath = "/html/body/div[3]/div/div[1]/div[10]/div[3]/div[2]/div[1]/div/div[2]")
     public WebElement type_purge_days_radio;
 
     @FindBy(xpath = "(//div[contains(text(),'FREESPACE')]")
@@ -634,7 +655,7 @@ public class GeneralConfigPage extends Base {
 
     public void clicksOnPurgeOptions() {
         purge_options_section.click();
-        Base.waitForClickablility(purge_interval_hour_radio, 2);
+        Base.waitForClickablility(purge_interval_hour_radio, 4);
 
     }
 

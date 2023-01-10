@@ -1,5 +1,6 @@
-Feature: Live page functionality
 
+@live
+Feature: Live page functionality
   Background:
     Given user is on live page
 
@@ -26,12 +27,12 @@ Feature: Live page functionality
     When user selects showlanes checkbox
     Then lane set before should appear on the live stream
 
-  @live12
+
   Scenario: Validate that patterns on live stream appears when calibrationpattern option is selected
     When user selects calibration pattern
     Then patterns should appear on live streaming
 
-  @live
+
   Scenario: Validate that user can change language of the page
     When user clicks on language section to select a language
     And user selects Spanish

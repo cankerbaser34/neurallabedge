@@ -1,5 +1,6 @@
-Feature: Checking general configuration options
 
+
+Feature: Checking general configuration options
   Background:
     Given user is on generalconfig page
 
@@ -99,6 +100,7 @@ Feature: Checking general configuration options
     And user selects direction option
     And user goes to live page
     Then on result panel  direction column should appear
+
 
   Scenario: Validate the functionality of confidence option for list field
     When user clicks on view options
@@ -204,6 +206,8 @@ Feature: Checking general configuration options
     #Purge Options start from here
 
 
+
+  @testlocator
   Scenario: Validate that purge interval is set to hour
     When user  clicks on purge options
     And user selects hour perge interval option
@@ -211,7 +215,7 @@ Feature: Checking general configuration options
     And user clicks on restart service button on GeneralConfig page
 
 
-    @genconfig
+  @genconfig
   Scenario:  Validate that purge option is set to day
     When user  clicks on purge options
     And user selects day radio option
@@ -318,7 +322,6 @@ Feature: Checking general configuration options
     Then new option should be added
 
 
-
   Scenario: Validate the functionality of editing saved option
     When user clicks on Customized options section
     And user clicks on edit button for saved customized value
@@ -332,7 +335,7 @@ Feature: Checking general configuration options
     When  user clicks on Customized options section
     And user clicks on delete button of desired option
     And user clicks on yes button to delete
-     And the option should be deleted
+    And the option should be deleted
 
 
 
